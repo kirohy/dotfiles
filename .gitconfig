@@ -1,0 +1,15 @@
+[include]
+    path = ~/.gitconfig.local
+
+[alias]
+    br = branch
+    cm = commit -m
+    ca = commit -a
+    cma = commit -am
+    co = checkout
+    pl = pull
+    ps = push
+    merge = merge --no-ff
+    st = status
+    sgl = log --oneline --graph --all --decorate
+    graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'

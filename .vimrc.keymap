@@ -1,0 +1,5 @@
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap ; :
+nnoremap L $
+nnoremap H ^
+inoremap <silent> jj <ESC>

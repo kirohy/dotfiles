@@ -1,0 +1,51 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "editor.cursorBlinking": "solid",
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Ricty Diminished",
+    "editor.formatOnSave": true,
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<ESC>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ]
+        },
+        {
+            "before": [
+                "shift+l"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "shift+h"
+            ],
+            "after": [
+                "0"
+            ]
+        }
+    ],
+    "julia.enableTelemetry": true,
+    "explorer.confirmDelete": false
+}
