@@ -10,4 +10,4 @@ eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Julia
-export PATH="$HOME/julia-1.3.1/bin:$PATH"
+# export PATH="$HOME/julia-1.3.1/bin:$PATH"
