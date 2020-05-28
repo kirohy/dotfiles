@@ -34,7 +34,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 export EDITOR=vim
 export LANG=ja_JP.UTF-8
 
-PS1='%F{red}%n: %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
+PS1='%f%F{red}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
 %% '
 
 # history
@@ -64,7 +64,7 @@ setopt pushd_ignore_dups
 
 alias ls='ls --color'
 alias la='ls -la --color'
-#alias vim='nvim'
+alias vim='nvim'
 alias g='git'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -74,6 +74,8 @@ alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias notify='mpg321 -q ~/Music/success.mp3 || mpg321 -q ~/Music/fail.mp3'
 alias shutdown='sudo shutdown -h now'
+alias vimrc='cd ~/.config/nvim && vim init.vim'
+alias zshrc='vim ~/.zshrc'
 
 chpwd() { ls }
 

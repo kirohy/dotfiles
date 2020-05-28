@@ -1,0 +1,35 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'dracula/vim'
+name = 'dracula'
+hook_add = '''
+  colorscheme dracula
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+  source ~/.config/nvim/rc/vim-airline.rc.vim
+'''
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add = '''
+  nnoremap N :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'qpkorr/vim-bufkill'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merged = 0
+rev = 'release'
+hook_add = '''
+  source ~/.config/nvim/rc/coc.rc.vim
+'''

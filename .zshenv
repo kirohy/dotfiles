@@ -7,7 +7,7 @@ fi
 eval "$(pyenv virtualenv-init -)"
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+source $HOME/.cargo/env
 
 # Julia
-# export PATH="$HOME/julia-1.3.1/bin:$PATH"
+export PATH="$HOME/julia/bin:$PATH"
