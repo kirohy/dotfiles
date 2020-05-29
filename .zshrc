@@ -1,27 +1,25 @@
-# zplug -----------------------------------------------
-export ZPLUG_HOME=$HOME/.zplug
-source $ZPLUG_HOME/init.zsh
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-zplug 'zsh-users/zsh-history-substring-search'
-zplug 'zsh-users/zsh-autosuggestions'
-zplug 'zsh-users/zsh-completions'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+zinit light 'zsh-users/zsh-history-substring-search'
+zinit light 'zsh-users/zsh-autosuggestions'
+zinit light 'zsh-users/zsh-completions'
+zinit light 'zsh-users/zsh-syntax-highlighting'
+### End of Zinit's installer chunk
 
-zplug check || zplug install
-zplug load
-
-#if ! zplug check --verbose; then
-#    printf "Install? [y/N]: "
-#    if read -q; then
-#        echo; zplug install
-#    fi
-#fi
-
-#zplug load --verbose
-
-# color
-autoload -Uz colors
-colors
+# autoload -Uz colors
+# colors
+# autoload -Uz compinit
+# compinit
 
 # prompt with git
 setopt PROMPT_SUBST
@@ -30,9 +28,6 @@ fpath=(~/.zsh $fpath)
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
-
-export EDITOR=vim
-export LANG=ja_JP.UTF-8
 
 PS1='%f%F{red}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
 %% '
@@ -48,9 +43,6 @@ setopt share_history
 bindkey -v
 
 # completion
-autoload -Uz compinit
-compinit
-
 zstyle ':completion:*' matcher-list m:{a-z}={A-Z}
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' list-lolors "${LS_COLORS}"
@@ -72,7 +64,6 @@ alias tnew='tmux new -s'
 alias tat='tmux a -t'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
-alias notify='mpg321 -q ~/Music/success.mp3 || mpg321 -q ~/Music/fail.mp3'
 alias shutdown='sudo shutdown -h now'
 alias vimrc='cd ~/.config/nvim && vim init.vim'
 alias zshrc='vim ~/.zshrc'
