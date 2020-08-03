@@ -2,14 +2,17 @@ let mapleader = "\<Space>"
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 nmap ; :
 nmap j gj
+vmap j gj
 nmap k gk
+vmap k gk
 nmap <C-h> :bnext<CR>
 nmap <C-l> :bprev<CR>
 nmap <Leader>bd :BD<CR>
+nmap <Leader>cl :close<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
-nmap <Leader>ide :15split<CR>:term<CR>:set nonumber<CR><C-w><C-w>:NERDTreeToggle<CR>I<C-w><C-w>
+nmap <Leader>ide :13split<CR>:term<CR>:set nonumber<CR><C-w><C-w>:NERDTreeToggle<CR>I<C-w><C-w>
 imap <silent> jj <ESC>
 imap {<CR> {}<Left><CR><Esc><S-o>
 imap {<Space> {}<Left>

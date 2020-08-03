@@ -5,6 +5,7 @@ repo = 'Shougo/dein.vim'
 repo = 'dracula/vim'
 name = 'dracula'
 hook_add = '''
+  let g:dracula_colorterm = 0
   colorscheme dracula
 '''
 
@@ -21,10 +22,22 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+  let g:webdevicons_enable_nerdtree = 1
+'''
+
+[[plugins]]
 repo = 'qpkorr/vim-bufkill'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'

@@ -1,5 +1,12 @@
+let mapleader = "\<Space>"
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-nnoremap ; :
-nnoremap L $
-nnoremap H ^
-inoremap <silent> jj <ESC>
+nmap ; :
+nmap j gj
+vmap j gj
+nmap k gk
+vmap k gk
+nmap <C-h> :bnext<CR>
+nmap <C-l> :bprev<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+imap <silent> jj <ESC>

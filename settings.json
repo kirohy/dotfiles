@@ -1,18 +1,17 @@
 {
     "workbench.colorTheme": "Dracula",
-    "debug.console.fontSize": 13,
+    "debug.console.fontSize": 16,
     "editor.cursorBlinking": "solid",
     "editor.detectIndentation": false,
-    "editor.fontFamily": "HackGen",
+    "editor.fontFamily": "HackGenNerd Console",
     "editor.formatOnSave": true,
-    "editor.fontSize": 13,
+    "editor.fontSize": 16,
     "editor.fontWeight": "300",
     "explorer.confirmDelete": false,
     "files.eol": "\n",
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "300",
     "vim.easymotion": true,
-    "vim.easymotionMarkerFontFamily": "HackGen",
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -50,8 +49,5 @@
     ],
     "julia.enableTelemetry": true,
     "csv-preview.formatValues": "never",
-    "remote.SSH.remotePlatform": {
-        "192.168.11.69": "linux"
-    },
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "none"
 }

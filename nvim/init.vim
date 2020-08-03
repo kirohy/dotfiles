@@ -56,6 +56,25 @@ set visualbell t_vb=
 set wildmenu
 set splitbelow
 set termguicolors
+set pumblend=10
+let g:terminal_color_0  = "#262626" "black
+let g:terminal_color_1  = "#e356a7" "red
+let g:terminal_color_2  = "#42e66c" "green
+let g:terminal_color_3  = "#e4f34c" "yellow
+let g:terminal_color_4  = "#9b6bdf" "blue
+let g:terminal_color_5  = "#e64747" "magenta
+let g:terminal_color_6  = "#75d7ec" "cyan
+let g:terminal_color_7  = "#efa554" "white
+let g:terminal_color_8  = "#7a7a7a" "bright black
+let g:terminal_color_9  = "#ff79c6" "bright red
+let g:terminal_color_10 = "#50fa7b" "bright green
+let g:terminal_color_11 = "#f1fa8c" "bright yellow
+let g:terminal_color_12 = "#bd93f9" "bright blue
+let g:terminal_color_13 = "#ff5555" "bright magenta
+let g:terminal_color_14 = "#8be9fd" "bright cyan
+let g:terminal_color_15 = "#ffb86c" "bright white
+let g:terminal_color_background="#282a36" "background
+let g:terminal_color_foreground="#f8f8f2" "foreground
 
 " search
 set incsearch

@@ -1,0 +1,45 @@
+font:
+    normal:
+        family: HackGenNerd Console
+        style: Regular
+    bold:
+        family: HackGenNerd Console
+        style: bold
+    italic:
+        family: HackGenNerd Console
+        style: italic
+    size: 13
+
+window:
+    dimensions:
+        columns: 170
+        lines: 52
+    position:
+        x: 380
+        y: 35
+    decorations: none
+
+colors:
+    primary:
+        background: '#282a36'
+        foreground: '#f8f8f2'
+    normal:
+        black:   '#262626'
+        red:     '#e356a7'
+        green:   '#42e66c'
+        yellow:  '#e4f34a'
+        blue:    '#9b6bdf'
+        magenta: '#e64747'
+        cyan:    '#75d7ec'
+        white:   '#efa554'
+    bright:
+        black:   '#7a7a7a'
+        red:     '#ff79c6'
+        green:   '#50fa7b'
+        yellow:  '#f1fa8c'
+        blue:    '#bd93f9'
+        magenta: '#ff5555'
+        cyan:    '#8be9fd'
+        white:   '#ffb86c'
+
+background_opacity: 0.85
