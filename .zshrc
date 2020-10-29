@@ -16,11 +16,6 @@ zinit light 'zsh-users/zsh-completions'
 zinit light 'zsh-users/zsh-syntax-highlighting'
 ### End of Zinit's installer chunk
 
-# autoload -Uz colors
-# colors
-# autoload -Uz compinit
-# compinit
-
 # prompt with git
 setopt PROMPT_SUBST
 source ~/.git-prompt.sh
@@ -29,7 +24,7 @@ fpath=(~/.zsh $fpath)
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
-PS1='%f%F{red}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
+PS1='%f%F{magenta}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
 %% '
 
 # history
@@ -54,8 +49,8 @@ setopt correct
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-alias ls='ls --color'
-alias la='ls -la --color'
+alias ls='exa --icons'
+alias la='exa -ahl --git --icons'
 alias vim='nvim'
 alias g='git'
 alias ..='cd ..'
@@ -77,3 +72,5 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
+
+[[ -z "$TMUX" && ! -z "$PS1" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] && tmux

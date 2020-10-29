@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Dracula",
     "debug.console.fontSize": 16,
     "editor.cursorBlinking": "solid",
     "editor.detectIndentation": false,
@@ -12,6 +11,7 @@
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "300",
     "vim.easymotion": true,
+    "vim.leader": "<space>",
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -40,14 +40,92 @@
                 "<Esc>"
             ],
             "commands": [
-                {
-                    "command": ":nohl",
-                    "args": []
-                }
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.focusSideBar"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "s"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "2",
+                "s",
+                "<char>",
+                "<char>"
             ]
         }
     ],
     "julia.enableTelemetry": true,
     "csv-preview.formatValues": "never",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Dracula",
+    "rust-analyzer.diagnostics.disabled": [
+        "unresolved-import"
+    ],
+    "workbench.iconTheme": "material-icon-theme"
 }
