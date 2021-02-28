@@ -12,11 +12,11 @@ font:
 
 window:
     dimensions:
-        columns: 170
-        lines: 52
+        columns: 165
+        lines: 55
     position:
-        x: 380
-        y: 35
+        x: 430
+        y: 30
     decorations: none
 
 colors:
