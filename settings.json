@@ -10,6 +10,15 @@
     "files.eol": "\n",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "300",
+    "workbench.colorTheme": "Dracula",
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
     "vim.easymotion": true,
     "vim.leader": "<space>",
     "vim.useSystemClipboard": true,
@@ -80,7 +89,7 @@
         {
             "before": [
                 "<leader>",
-                "s"
+                "f"
             ],
             "commands": [
                 "workbench.action.focusSideBar"
@@ -108,6 +117,7 @@
         },
         {
             "before": [
+                "<leader>",
                 "s"
             ],
             "after": [
@@ -122,10 +132,10 @@
     ],
     "julia.enableTelemetry": true,
     "csv-preview.formatValues": "never",
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Dracula",
     "rust-analyzer.diagnostics.disabled": [
         "unresolved-import"
     ],
-    "workbench.iconTheme": "material-icon-theme"
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
 }

@@ -51,7 +51,7 @@ setopt pushd_ignore_dups
 
 alias ls='exa --icons'
 alias la='exa -ahl --git --icons'
-alias vim='nvim'
+# alias vim='nvim'
 alias g='git'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -72,5 +72,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
+
+source ~/.ros.zsh
 
 [[ -z "$TMUX" && ! -z "$PS1" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] && tmux
