@@ -16,18 +16,21 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'preservim/nerdtree'
-hook_add = '''
-  nnoremap N :NERDTreeToggle<CR>
-'''
-
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-
-[[plugins]]
 repo = 'ryanoasis/vim-devicons'
 hook_add = '''
   let g:webdevicons_enable_nerdtree = 1
+'''
+
+[[plugins]]
+repo ="kristijanhusak/defx-icons"
+
+[[plugins]]
+repo ="kristijanhusak/defx-git"
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+  source ~/.config/nvim/rc/defx.rc.vim
 '''
 
 [[plugins]]

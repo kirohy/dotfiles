@@ -12,7 +12,6 @@ mkdir -p ~/.config/alacritty
 ln -sf ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.config/conky
 cp ~/dotfiles/conky.conf ~/.config/conky/conky.conf
-mkdir -p ~/.config/nvim
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json

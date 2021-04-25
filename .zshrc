@@ -18,8 +18,8 @@ zinit light 'zsh-users/zsh-syntax-highlighting'
 
 # prompt with git
 setopt PROMPT_SUBST
-source ~/.git-prompt.sh
-fpath=(~/.zsh $fpath)
+source $HOME/.git-prompt.sh
+fpath=($HOME/.zsh $fpath)
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -28,7 +28,7 @@ PS1='%f%F{magenta}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
 %% '
 
 # history
-HISTFILE=~/.zsh_hist
+HISTFILE=$HOME/.zsh_hist
 HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups
@@ -51,7 +51,7 @@ setopt pushd_ignore_dups
 
 alias ls='exa --icons'
 alias la='exa -ahl --git --icons'
-# alias vim='nvim'
+alias vim='nvim'
 alias g='git'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -73,6 +73,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-source ~/.ros.zsh
+if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
+if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi
 
 [[ -z "$TMUX" && ! -z "$PS1" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] && tmux

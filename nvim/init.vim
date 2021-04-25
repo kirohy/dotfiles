@@ -33,7 +33,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim/bin/python3'
 
 " basic
 set autoread
@@ -87,6 +87,12 @@ set wrapscan
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+" filetype
+autocmd BufNewFile,BufRead *.l set filetype=lisp
+autocmd BufNewFile,BufRead *.launch set filetype=xml
+autocmd BufNewFile,BufRead *.body set filetype=yaml
+autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
 
 " keymap
 source ~/.config/nvim/keymap.vim
