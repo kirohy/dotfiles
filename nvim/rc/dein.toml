@@ -34,6 +34,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+  source ~/.config/nvim/rc/denite.rc.vim
+'''
+
+[[plugins]]
 repo = 'qpkorr/vim-bufkill'
 
 [[plugins]]

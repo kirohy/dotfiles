@@ -11,13 +11,14 @@ font:
     size: 13
 
 window:
-    dimensions:
-        columns: 165
-        lines: 55
-    position:
-        x: 430
-        y: 30
+    # dimensions:
+    #     columns: 165
+    #     lines: 55
+    # position:
+    #     x: 430
+    #     y: 30
     decorations: none
+    startup_mode: Maximized
 
 colors:
     primary:

@@ -3,8 +3,9 @@ if &compatible
   set nocompatible
 endif
 
+let s:nvim_dir = expand('~/.config/nvim')
 let s:dein_dir = expand('~/.cache/dein')
-let s:toml_dir = expand('~/.config/nvim/rc')
+let s:toml_dir = s:nvim_dir . '/rc'
 let s:toml_base = s:toml_dir . '/dein.toml'
 let s:toml_lazy = s:toml_dir . '/dein_lazy.toml'
 
@@ -33,7 +34,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim/bin/python3'
+let g:python3_host_prog = s:nvim_dir . '/venv/bin/python3'
 
 " basic
 set autoread

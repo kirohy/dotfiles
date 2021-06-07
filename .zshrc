@@ -76,4 +76,15 @@ bindkey -M menuselect 'l' vi-forward-char
 if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
 if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi
 
-[[ -z "$TMUX" && ! -z "$PS1" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] && tmux
+if [[ -z "$TMUX" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
+    SSH_SESSION=`tmux ls | grep ssh`
+    if [[ -n "$SSH_CONNECTION" ]]; then
+        if [[ -z "$SSH_SESSION" ]]; then
+            tmux new -s ssh
+        else
+            tmux a -t ssh
+        fi
+    else
+        tmux
+    fi
+fi
