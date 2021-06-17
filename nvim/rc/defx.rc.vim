@@ -77,4 +77,4 @@ function! s:defx_my_settings() abort
   \ defx#do_action('change_vim_cwd')
 endfunction
 
-nmap <Leader>f :Defx<CR>
+nmap <silent> <Leader>df :<C-u>Defx<CR>

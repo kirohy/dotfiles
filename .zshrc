@@ -23,6 +23,7 @@ fpath=($HOME/.zsh $fpath)
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=true
 
 PS1='%f%F{magenta}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
 %% '

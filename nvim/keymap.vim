@@ -1,4 +1,3 @@
-let mapleader = "\<Space>"
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 nmap ; :
 nmap j gj
@@ -26,10 +25,3 @@ nmap <silent> <Leader>co :s/</<!--<Space>/<CR>:s/>/<Space>-->/<CR>:nohlsearch<CR
 nmap <silent> <Leader>ci :s/\(!--<Space>\\|<Space>--\)//g<CR>:nohlsearch<CR>
 vmap <silent> <Leader>co <Esc>`>i<Space>--<Esc>`<a!--<Space><Esc>
 vmap <silent> <Leader>ci :s/\(!--<Space>\\|<Space>--\)//g<CR>:nohlsearch<CR>
-
-" defx
-nmap <silent> <Leader>df :<C-u>Defx<CR>:set<Space>nonumber<CR>
-
-" denite
-nmap <silent> <leader>f :<C-u>DeniteProjectDir -start-filter file/rec<CR>
-nmap <silent> <leader>g :<C-u>DeniteProjectDir grep<CR>

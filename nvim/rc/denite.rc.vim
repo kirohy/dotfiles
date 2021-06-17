@@ -18,4 +18,5 @@ call denite#custom#option('default', {
   \ 'split': 'floating',
   \ })
 
-nmap <leader>ss :DeniteProjectDir -start-filter file/rec<CR>
+nmap <silent> <Leader>f :<C-u>DeniteProjectDir -start-filter file/rec<CR>
+nmap <silent> <Leader>g :<C-u>DeniteProjectDir grep<CR>

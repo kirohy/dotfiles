@@ -3,6 +3,7 @@ if &compatible
   set nocompatible
 endif
 
+let mapleader = "\<Space>"
 let s:nvim_dir = expand('~/.config/nvim')
 let s:dein_dir = expand('~/.cache/dein')
 let s:toml_dir = s:nvim_dir . '/rc'
@@ -96,4 +97,4 @@ autocmd BufNewFile,BufRead *.body set filetype=yaml
 autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
 
 " keymap
-source ~/.config/nvim/keymap.vim
+runtime! ./keymap.vim
