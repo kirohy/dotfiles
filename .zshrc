@@ -49,6 +49,7 @@ setopt auto_list
 setopt correct
 setopt auto_pushd
 setopt pushd_ignore_dups
+setopt no_flow_control
 
 alias ls='exa --icons'
 alias la='exa -ahl --git --icons'
@@ -60,6 +61,8 @@ alias tnew='tmux new -s'
 alias tat='tmux a -t'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
+alias tkw='tmux kill-window -t'
+alias tkp='tmux kill-pane -t'
 alias shutdown='sudo shutdown -h now'
 alias vimrc='cd ~/.config/nvim && vim init.vim'
 alias zshrc='vim ~/.zshrc'
@@ -73,6 +76,10 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 
 if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
 if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi

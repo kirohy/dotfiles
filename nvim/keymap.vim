@@ -11,6 +11,9 @@ nmap <Leader>cl :close<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
+nmap <silent> <Leader>tn :enew<CR>:term<CR>:set nonumber<CR>
+nmap <silent> <Leader>th :new<CR>:term<CR>:set nonumber<CR>
+nmap <silent> <Leader>tv :vnew<CR>:term<CR>:set nonumber<CR>
 imap <silent> jj <ESC>
 imap {<CR> {}<Left><CR><Esc><S-o>
 imap {<Space> {}<Left>
