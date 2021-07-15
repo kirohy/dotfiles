@@ -6,20 +6,18 @@ repo = 'dracula/vim'
 name = 'dracula'
 hook_add = '''
   let g:dracula_colorterm = 0
+  syntax enable
   colorscheme dracula
 '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-  source ~/.config/nvim/rc/vim-airline.rc.vim
+  lua require('plugins.vim-airline-conf')
 '''
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-hook_add = '''
-  let g:webdevicons_enable_nerdtree = 1
-'''
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
@@ -30,17 +28,14 @@ repo = 'kristijanhusak/defx-git'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-  source ~/.config/nvim/rc/defx.rc.vim
+  lua require('plugins.defx-conf')
 '''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  source ~/.config/nvim/rc/denite.rc.vim
+  lua require('plugins.denite-conf')
 '''
-
-[[plugins]]
-repo = 'qpkorr/vim-bufkill'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -53,5 +48,5 @@ repo = 'neoclide/coc.nvim'
 merged = 0
 rev = 'release'
 hook_add = '''
-  source ~/.config/nvim/rc/coc.rc.vim
+  lua require('plugins.coc-conf')
 '''

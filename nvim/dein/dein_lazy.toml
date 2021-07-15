@@ -1,0 +1,10 @@
+[[plugins]]
+repo = 'jpalardy/vim-slime'
+hook_source = '''
+  lua require('plugins.vim-slime-conf')
+'''
+on_ft = ['python', 'lisp']
+
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+on_ft = ['cpp']

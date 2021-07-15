@@ -80,6 +80,7 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
+bindkey 'jj' vi-cmd-mode
 
 if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
 if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi

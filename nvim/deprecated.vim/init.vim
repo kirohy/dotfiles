@@ -54,29 +54,29 @@ set noshowmode
 set number
 set showcmd
 set showmatch
-set visualbell t_vb=
+"set visualbell t_vb=
 set wildmenu
 set splitbelow
 set termguicolors
 set pumblend=10
-let g:terminal_color_0  = "#21222c" "black
-let g:terminal_color_1  = "#ff5555" "red
-let g:terminal_color_2  = "#50fa7b" "green
-let g:terminal_color_3  = "#f1fa8c" "yellow
-let g:terminal_color_4  = "#bd93f9" "blue
-let g:terminal_color_5  = "#ff79c6" "magenta
-let g:terminal_color_6  = "#8be9fd" "cyan
-let g:terminal_color_7  = "#f8f8f2" "white
-let g:terminal_color_8  = "#6272a4" "bright black
-let g:terminal_color_9  = "#ff6e6e" "bright red
-let g:terminal_color_10 = "#69ff94" "bright green
-let g:terminal_color_11 = "#ffffa5" "bright yellow
-let g:terminal_color_12 = "#d6acff" "bright blue
-let g:terminal_color_13 = "#ff92df" "bright magenta
-let g:terminal_color_14 = "#a4ffff" "bright cyan
-let g:terminal_color_15 = "#ffffff" "bright white
-let g:terminal_color_background="#282a36" "background
-let g:terminal_color_foreground="#f8f8f2" "foreground
+"let g:terminal_color_0  ="#21222c" "black
+"let g:terminal_color_1  ="#ff5555" "red
+"let g:terminal_color_2  ="#50fa7b" "green
+"let g:terminal_color_3  ="#f1fa8c" "yellow
+"let g:terminal_color_4  ="#bd93f9" "blue
+"let g:terminal_color_5  ="#ff79c6" "magenta
+"let g:terminal_color_6  ="#8be9fd" "cyan
+"let g:terminal_color_7  ="#f8f8f2" "white
+"let g:terminal_color_8  ="#6272a4" "bright black
+"let g:terminal_color_9  ="#ff6e6e" "bright red
+"let g:terminal_color_10 ="#69ff94" "bright green
+"let g:terminal_color_11 ="#ffffa5" "bright yellow
+"let g:terminal_color_12 ="#d6acff" "bright blue
+"let g:terminal_color_13 ="#ff92df" "bright magenta
+"let g:terminal_color_14 ="#a4ffff" "bright cyan
+"let g:terminal_color_15 ="#ffffff" "bright white
+"let g:terminal_color_background="#282a36" "background
+"let g:terminal_color_foreground="#f8f8f2" "foreground
 
 " search
 set incsearch

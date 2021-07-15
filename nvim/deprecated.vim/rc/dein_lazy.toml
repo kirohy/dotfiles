@@ -4,3 +4,7 @@ hook_source = '''
   source ~/.config/nvim/rc/vim-slime.rc.vim
 '''
 on_ft = ['python', 'lisp']
+
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+on_ft = ['cpp']
