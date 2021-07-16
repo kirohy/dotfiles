@@ -1,5 +1,3 @@
-vim.cmd('filetype pluginindent on')
-
 vim.o.encoding = 'UTF-8'
 vim.o.autoread = true
 vim.o.hidden = true
@@ -33,6 +31,7 @@ vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 
 vim.g.mapleader = ' '
+vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'
 
 vim.cmd([[
 autocmd BufNewFile,BufRead *.l set filetype=lisp
@@ -42,4 +41,12 @@ autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
 autocmd FileType lisp,lua,xml,yaml setlocal tabstop=2 shiftwidth=2
 ]])
 
-vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'
+vim.cmd([[
+syntax enable
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
+highlight SignColumn ctermbg=NONE guibg=NONE
+]])
