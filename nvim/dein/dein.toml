@@ -2,46 +2,58 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'dracula/vim'
-name = 'dracula'
+repo = 'Mofiqul/dracula.nvim'
 hook_add = '''
-  let g:dracula_colorterm = 0
   syntax enable
   colorscheme dracula
+  highlight Normal ctermbg=NONE guibg=NONE
+  highlight NonText ctermbg=NONE guibg=NONE
+  highlight LineNr ctermbg=NONE guibg=NONE
+  highlight Folded ctermbg=NONE guibg=NONE
+  highlight EndOfBuffer ctermbg=NONE guibg=NONE
+  highlight SignColumn ctermbg=NONE guibg=NONE
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-tree.lua'
 hook_add = '''
-  lua require('plugins.vim-airline-conf')
+  lua require('plugins.nvim-tree-conf')
 '''
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
+repo = 'hoob3rt/lualine.nvim'
 hook_add = '''
-  lua require('plugins.defx-conf')
+  lua require('plugins.lualine-conf')
 '''
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo = 'akinsho/nvim-bufferline.lua'
 hook_add = '''
-  lua require('plugins.denite-conf')
+  lua require('plugins.bufferline-conf')
 '''
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+depends = ['plenary.nvim']
+hook_add = '''
+  lua require('plugins.gitsigns-conf')
+'''
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+depends = ['plenary.nvim', 'popup.nvim']
+hook_add = '''
+  lua require('plugins.telescope-conf')
+'''
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -50,3 +62,20 @@ rev = 'release'
 hook_add = '''
   lua require('plugins.coc-conf')
 '''
+
+# [[plugins]]
+# repo = 'neovim/nvim-lspconfig'
+# hook_add = '''
+#   lua require('plugins.nvim-lspconfig-conf')
+# '''
+# 
+# [[plugins]]
+# repo = 'L3MON4D3/LuaSnip'
+# 
+# [[plugins]]
+# repo = 'hrsh7th/nvim-compe'
+# depends = ['LuaSnip']
+# hook_add = '''
+#   lua require('plugins.nvim-compe-conf')
+# '''
+

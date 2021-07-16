@@ -23,7 +23,46 @@ vim.api.nvim_set_keymap('i', [[']], [[''<Left>]], { noremap = true, silent = tru
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- xml comment
-vim.api.nvim_set_keymap('n', '<Leader>co', [[:s/</<!--<Space></<CR>:s/>/><Space>-->/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>ci', [[:s/<!--<Space>//<CR>:s/<Space>-->//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<Leader>co', [[:s/\(\S.\{-}\)\ze\n/<!-- \1 -->/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<Leader>ci', [[:s/\(<!--<Space>\|<Space>-->\)//g<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+vim.cmd('autocmd FileType xml lua XmlCommentout()')
+function XmlCommentout()
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/</<!--<Space></<CR>:s/>/><Space>-->/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/<!--<Space>//<CR>:s/<Space>-->//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S.\{-}\)\ze\n/<!-- \1 -->/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/\(<!--<Space>\|<Space>-->\)//g<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+end
+
+-- c, cpp comment
+vim.cmd('autocmd FileType c,cpp lua CxxCommentout()')
+function CxxCommentout()
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/\(\S\)/\/\/ \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/\/\/<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/\/\/ \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/\/\/<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+end
+
+-- python, cmake, yaml, toml comment
+vim.cmd('autocmd FileType python,cmake,yaml,toml lua PythonCommentout()')
+function PythonCommentout()
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/\(\S\)/# \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/#<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/# \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/#<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+end
+
+-- lisp comment
+vim.cmd('autocmd FileType lisp lua LispCommentout()')
+function LispCommentout()
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/\(\S\)/;; \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/;;<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/;; \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/;;<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+end
+
+-- lua comment
+vim.cmd('autocmd FileType lua lua LuaCommentout()')
+function LuaCommentout()
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/\(\S\)/-- \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/--<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/-- \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/--<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+end

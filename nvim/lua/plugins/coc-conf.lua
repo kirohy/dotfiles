@@ -4,7 +4,7 @@ vim.o.updatetime = 300
 
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appear/become resolved.
-vim.wo.signcolumn = 'yes'
+-- vim.wo.signcolumn = 'yes'
 
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -115,7 +115,7 @@ vim.cmd([[command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.actio
 -- Add (Neo)Vim's native statusline support.
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 -- provide custom statusline: lightline.vim, vim-airline.
-vim.cmd([[set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}]])
+-- vim.cmd([[set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}]])
 
 -- Mappings for CoCList
 -- Show all diagnostics.

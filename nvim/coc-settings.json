@@ -1,4 +1,33 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["rust"],
-    "clangd.semanticHighlighting": true
+    "clangd.semanticHighlighting": true,
+    "languageserver": {
+	"lua": {
+	    "command": "/home/kirohy/.lua-language-server/bin/Linux/lua-language-server",
+	    "args": ["-E", "/home/kirohy/.lua-language-server/main.lua"],
+	    "filetypes": ["lua"],
+	    "settings": {
+		"Lua": {
+		    "workspace": {
+			"library": {
+			    "/usr/local/share/nvim/runtime/lua/": true
+			},
+			"maxPreload": 2000,
+			"preloadFileSize": 1000
+		    },
+		    "runtime": {
+			"version": "LuaJIT"
+		    },
+		    "diagnostics": {
+			"enable": true,
+			"globals": ["hs", "vim", "it", "describe", "before_each", "after_each"],
+			"disable": ["lowercase-global"]
+		    },
+		    "completion": {
+			"keywordSnippet": "Disable"
+		    }
+		}
+	    }
+	}
+    }
 }

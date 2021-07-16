@@ -9,6 +9,7 @@ vim.o.writebackup = false
 
 vim.wo.cursorline = true
 vim.wo.number = true
+vim.wo.signcolumn = 'yes'
 vim.o.laststatus = 2
 vim.o.showmode = false
 vim.o.showcmd = true
@@ -38,6 +39,7 @@ autocmd BufNewFile,BufRead *.l set filetype=lisp
 autocmd BufNewFile,BufRead *.launch set filetype=xml
 autocmd BufNewFile,BufRead *.body set filetype=yaml
 autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
+autocmd FileType lisp,lua,xml,yaml setlocal tabstop=2 shiftwidth=2
 ]])
 
 vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'
