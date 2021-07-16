@@ -15,11 +15,11 @@ vim.api.nvim_set_keymap('n', '<Leader>tn', ':enew<CR>:term<CR>', { noremap = tru
 vim.api.nvim_set_keymap('n', '<Leader>th', ':new<CR>:term<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>tv', ':vnew<CR>:term<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '{', '{}<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', [["]], [[""<Left>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', [[']], [[''<Left>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '{', '{}<Left>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', [["]], [[""<Left>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', [[']], [[''<Left>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- xml comment

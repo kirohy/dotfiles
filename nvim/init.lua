@@ -1,3 +1,3 @@
-require('plugins')
-require('settings')
-require('keybinds')
+require('core.plugins')
+require('core.settings')
+require('core.keybinds')

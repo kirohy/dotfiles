@@ -2,10 +2,7 @@
 
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 cp ~/dotfiles/.gitconfig.local ~/.gitconfig.local
-ln -sf ~/dotfiles/.ideavimrc ~/.ideavimrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.vimrc.keymap ~/.vimrc.keymap
 ln -sf ~/dotfiles/.zshenv ~/.zshenv
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
@@ -26,5 +23,5 @@ pip install pynvim
 deactivate
 
 # vscode
-ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
-ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json
+ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json

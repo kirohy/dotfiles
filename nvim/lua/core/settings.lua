@@ -26,8 +26,8 @@ vim.o.wrapscan = true
 
 vim.bo.autoindent = true
 vim.bo.smartindent = true
-vim.bo.expandtab = true
 vim.bo.tabstop = 4
+vim.bo.expandtab = true
 vim.bo.shiftwidth = 4
 
 vim.g.mapleader = ' '
@@ -38,7 +38,7 @@ autocmd BufNewFile,BufRead *.l set filetype=lisp
 autocmd BufNewFile,BufRead *.launch set filetype=xml
 autocmd BufNewFile,BufRead *.body set filetype=yaml
 autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
-autocmd FileType lisp,lua,xml,yaml setlocal tabstop=2 shiftwidth=2
+autocmd FileType lisp,lua,xml,yaml setlocal tabstop=2 expandtab shiftwidth=2
 ]])
 
 vim.cmd([[
