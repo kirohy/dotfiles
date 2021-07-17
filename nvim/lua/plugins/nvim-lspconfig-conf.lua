@@ -41,26 +41,27 @@ function M.config()
   }
 
   nvim_lsp.clangd.setup {
+    cmd = { 'clangd', '--backgound-index', '--clang-tidy' },
     on_attach = on_attach,
     capabilities = capabilities,
   }
   nvim_lsp.rust_analyzer.setup({
-      on_attach=on_attach,
+    on_attach=on_attach,
     capabilities = capabilities,
-      settings = {
-          ["rust-analyzer"] = {
-              assist = {
-                  importGranularity = "module",
-                  importPrefix = "by_self",
-              },
-              cargo = {
-                  loadOutDirsFromCheck = true
-              },
-              procMacro = {
-                  enable = true
-              },
-          }
+    settings = {
+      ["rust-analyzer"] = {
+        assist = {
+          importGranularity = "module",
+          importPrefix = "by_self",
+        },
+        cargo = {
+          loadOutDirsFromCheck = true
+        },
+        procMacro = {
+          enable = true
+        },
       }
+    }
   })
 
   local sumneko_root_path = vim.fn.getenv("HOME").."/.lua-language-server"

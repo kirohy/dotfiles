@@ -50,3 +50,5 @@ highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
 ]])
+
+vim.cmd([[autocmd TermOpen * setlocal nonumber]])
