@@ -24,11 +24,11 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.wrapscan = true
 
-vim.bo.autoindent = true
-vim.bo.smartindent = true
-vim.bo.tabstop = 4
-vim.bo.expandtab = true
-vim.bo.shiftwidth = 4
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.tabstop = 4
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
 
 vim.g.mapleader = ' '
 vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'

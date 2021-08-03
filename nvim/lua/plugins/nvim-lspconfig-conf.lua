@@ -41,7 +41,6 @@ function M.config()
   }
 
   nvim_lsp.clangd.setup {
-    cmd = { 'clangd', '--backgound-index', '--clang-tidy' },
     on_attach = on_attach,
     capabilities = capabilities,
   }
