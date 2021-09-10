@@ -3,9 +3,9 @@ local M = {}
 function M.config()
   vim.g.nvim_tree_side = 'left'
   vim.g.nvim_tree_width = 40
-	-- vim.g.nvim_tree_auto_open = 1
-	vim.g.nvim_tree_auto_close = 1
-	-- vim.g.nvim_tree_quit_on_open = 1
+	vim.g.nvim_tree_auto_open = 0
+	vim.g.nvim_tree_auto_close = 0
+	vim.g.nvim_tree_quit_on_open = 0
   vim.g.nvim_tree_follow = 1
   vim.g.nvim_tree_indent_markers = 1
   vim.g.nvim_tree_auto_resize = 0
@@ -58,8 +58,7 @@ function M.config()
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>n', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
   end
   vim.api.nvim_set_keymap('n', '<Leader>tr', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', '<Leader>bd', ':NvimTreeClose<CR>:bdelete<CR>:NvimTreeOpen<CR><C-w><C-w>', { noremap = true, silent = true })
-  vim.cmd([[autocmd VimEnter * exe "term" | setlocal nonumber | NvimTreeOpen]])
+  -- vim.cmd([[autocmd VimEnter * exe "term" | setlocal nonumber | NvimTreeOpen]])
 
   local tree_cb = require'nvim-tree.config'.nvim_tree_callback
   vim.g.nvim_tree_bindings = {

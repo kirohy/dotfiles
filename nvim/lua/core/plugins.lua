@@ -66,5 +66,11 @@ return require('packer').startup(function()
     'lukas-reineke/indent-blankline.nvim',
     config = function() vim.g.indent_blankline_char = '│' end,
   }
+  use {
+    'vim-denops/denops.vim',
+  }
+  use {
+    'lambdalisue/guise.vim',
+  }
 end)
 
