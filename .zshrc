@@ -64,8 +64,6 @@ alias tks='tmux kill-session -t'
 alias tkw='tmux kill-window -t'
 alias tkp='tmux kill-pane -t'
 alias shutdown='sudo shutdown -h now'
-alias vimrc='cd ~/.config/nvim && vim init.vim'
-alias zshrc='vim ~/.zshrc'
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
 

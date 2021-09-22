@@ -4,7 +4,7 @@ function M.config()
   vim.g.nvim_tree_side = 'left'
   vim.g.nvim_tree_width = 40
 	vim.g.nvim_tree_auto_open = 0
-	vim.g.nvim_tree_auto_close = 0
+	vim.g.nvim_tree_auto_close = 1
 	vim.g.nvim_tree_quit_on_open = 0
   vim.g.nvim_tree_follow = 1
   vim.g.nvim_tree_indent_markers = 1
