@@ -47,11 +47,9 @@ return require('packer').startup(function()
     config = require('plugins.nvim-lspconfig-conf').config,
   }
   use {
-    'hrsh7th/nvim-compe',
-  }
-  use {
-    'L3MON4D3/LuaSnip',
-    config = require('plugins.nvim-compe-conf').config,
+    'hrsh7th/nvim-cmp',
+    requires = {{ 'hrsh7th/cmp-nvim-lsp' }, { 'saadparwaiz1/cmp_luasnip' }, { 'L3MON4D3/LuaSnip' }, { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' }},
+    config = require('plugins.nvim-cmp-conf').config
   }
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -66,11 +64,7 @@ return require('packer').startup(function()
     'lukas-reineke/indent-blankline.nvim',
     config = function() vim.g.indent_blankline_char = '│' end,
   }
-  use {
-    'vim-denops/denops.vim',
-  }
-  use {
-    'lambdalisue/guise.vim',
-  }
+  use 'vim-denops/denops.vim'
+  use 'lambdalisue/guise.vim'
 end)
 

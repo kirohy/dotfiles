@@ -5,7 +5,7 @@ function M.config()
 		check_ts = true,
 		enable_check_bracket_line = true,
 	}
-	require("nvim-autopairs.completion.compe").setup {
+	require("nvim-autopairs.completion.cmp").setup {
 		map_cr = true,
 		map_complete = true,
 	}
