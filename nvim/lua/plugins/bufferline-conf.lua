@@ -26,6 +26,8 @@ function M.config()
   })
   vim.api.nvim_set_keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<A-h>', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<A-l>', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<Leader>bd', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
 end
 
