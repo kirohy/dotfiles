@@ -40,10 +40,14 @@ function M.config()
     }
   }
 
-  nvim_lsp.clangd.setup {
+  local servers = { 'clangd', 'pyright' }
+  for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
+  end
+
   nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
     capabilities = capabilities,

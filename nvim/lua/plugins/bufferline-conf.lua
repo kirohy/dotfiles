@@ -28,7 +28,14 @@ function M.config()
   vim.api.nvim_set_keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<A-h>', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<A-l>', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', '<Leader>bd', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<Leader>bc', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
+
+  function _G.BufdeleteCurrent()
+    local buf_num = vim.api.nvim_eval([[bufnr('%')]])
+    vim.api.nvim_command([[BufferLineCyclePrev]])
+    require('bufferline').handle_close_buffer(buf_num)
+  end
+  vim.api.nvim_set_keymap('n', '<Leader>bd', [[<Cmd>lua BufdeleteCurrent()<CR>]], { noremap = true, silent = true })
 end
 
 return M
