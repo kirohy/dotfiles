@@ -66,6 +66,7 @@ alias tkp='tmux kill-pane -t'
 alias shutdown='sudo shutdown -h now'
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
+alias luamake=$HOME/.lua-language-server/3rd/luamake/luamake
 
 chpwd() { ls }
 

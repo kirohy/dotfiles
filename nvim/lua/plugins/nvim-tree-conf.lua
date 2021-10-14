@@ -54,7 +54,9 @@ function M.config()
   require('nvim-tree').setup{
     disable_netrw = false,
     hijack_netrw = false,
-    lsp_diagnostics = true,
+    diagnostics = {
+      enable = true,
+    },
     auto_open = false,
     auto_close = true,
     update_cwd = true,

@@ -27,9 +27,9 @@ cargo install exa bat
 # Alacritty
 (
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-git clone https://github.com/alacritty/alacritty.git
+git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
+cd $HOME/alacritty
 git checkout v0.9.0
-cd alacritty
 cargo build --release
 sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
@@ -41,11 +41,22 @@ sudo update-desktop-database
 # Neovim
 (
 sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
-git clone https://github.com/neovim/neovim
-cd neovim
+git clone https://github.com/neovim/neovim $HOME/neovim
+cd $HOME/neovim
 git checkout stable
 make CMAKE_BUILD_TYPE=Release -j4
 sudo make install
+)
+
+# Lua Language server
+(
+git clone https://github.com/sumneko/lua-language-server $HOME/.lua-language-server
+cd $HOME/.lua-language-server
+git submodule update --init --recursive
+cd 3rd/luamake
+./compile/install.sh
+cd ../..
+./3rd/luamake/luamake rebuild
 )
 
 # Denops
