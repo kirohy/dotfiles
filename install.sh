@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt install zsh tmux vim conky-all
+sudo apt install zsh tmux vim conky-all curl python3-venv build-essential
 chsh -s /usr/bin/zsh
 
 # tmux
@@ -71,3 +71,9 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Super>
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up', '<Control><Shift><Alt>k']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Shift><Alt>Left', '<Control><Shift><Alt>h']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Shift><Alt>Right', '<Control><Shift><Alt>l']"
+
+# font
+FONT_ADDRESS=$(curl -v https://api.github.com/repos/yuru7/HackGen/releases/latest | jq -r '.assets[0].url')
+curl -L -H 'Accept: application/octet-stream' "$FONT_ADDRESS" -o HackGenNerd.zip
+unzip HackGenNerd.zip
+cp ./HackGenNerd*/HackGenNerdConsole-Regular.ttf $HOME/.local/share/fonts/
