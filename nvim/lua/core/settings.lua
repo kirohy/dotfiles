@@ -38,7 +38,7 @@ autocmd BufNewFile,BufRead *.l set filetype=lisp
 autocmd BufNewFile,BufRead *.launch set filetype=xml
 autocmd BufNewFile,BufRead *.body set filetype=yaml
 autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
-autocmd FileType lisp,lua,xml,yaml,cmake setlocal tabstop=2 expandtab shiftwidth=2
+autocmd FileType lisp,lua,xml,yaml,cmake,vrml setlocal tabstop=2 expandtab shiftwidth=2
 ]])
 
 vim.cmd([[

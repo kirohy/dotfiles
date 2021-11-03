@@ -17,7 +17,7 @@ return require('packer').startup(function()
     config = require('plugins.gitsigns-conf').config,
   }
   use {
-    'hoob3rt/lualine.nvim',
+    'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = require('plugins.lualine-conf').config,
   }
