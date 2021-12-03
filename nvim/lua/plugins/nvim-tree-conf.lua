@@ -42,6 +42,7 @@ function M.config()
     }
   }
 
+  vim.cmd('highlight NvimTreeNormal ctermbg=NONE guibg=NONE')
   vim.cmd('autocmd FileType NvimTree lua NvimTree_my_settings()')
   function NvimTree_my_settings()
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>r', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
