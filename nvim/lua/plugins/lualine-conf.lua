@@ -13,7 +13,7 @@ function M.config()
       },
       lualine_c = { 'filename' },
       lualine_x = {
-				{ 'diagnostics', sources = { 'nvim_lsp' } }
+				{ 'diagnostics', sources = { 'nvim_diagnostic' } }
 			},
       lualine_y = { 'encoding', 'fileformat', 'filetype' },
       lualine_z = { 'progress', 'location' },
