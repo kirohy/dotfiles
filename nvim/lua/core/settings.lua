@@ -30,6 +30,8 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 
+vim.opt.clipboard:append{'unnamedplus'}
+
 vim.g.mapleader = ' '
 vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'
 

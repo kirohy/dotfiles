@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt install zsh tmux vim conky-all curl python3-venv build-essential
+sudo apt install zsh tmux vim conky-all curl python3-venv build-essential xclip
 chsh -s /usr/bin/zsh
 
 # tmux
