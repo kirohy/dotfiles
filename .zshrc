@@ -53,7 +53,6 @@ setopt no_flow_control
 
 alias ls='exa --icons'
 alias la='exa -ahl --git --icons'
-alias bat='bat --theme="Dracula"'
 alias vim='nvim'
 alias g='git'
 alias ..='cd ..'

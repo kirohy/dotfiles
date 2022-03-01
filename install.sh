@@ -48,6 +48,8 @@ ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/dotfiles/.zshenv $HOME/.zshenv
 ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
 touch $HOME/.zshenv_local
+mkdir -p $HOME/.config/bat
+ln -sf $HOME/dotfiles/bat.config $HOME/.config/bat/conf
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 
 # GUI Softwares
