@@ -1,16 +1,20 @@
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  PACKER_BOOTSTRAP = vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.api.nvim_command("packadd packer.nvim")
 end
 
-local use = require('packer').use
-return require('packer').startup(function()
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use {
-    'Mofiqul/dracula.nvim',
-    config = vim.cmd([[colorscheme dracula]]),
-  }
+  use 'Mofiqul/dracula.nvim'
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -66,5 +70,9 @@ return require('packer').startup(function()
   }
   use 'vim-denops/denops.vim'
   use 'lambdalisue/guise.vim'
+
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
 end)
 

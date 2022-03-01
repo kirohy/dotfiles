@@ -46,6 +46,7 @@ autocmd TermOpen * IndentBlanklineDisable
 ]])
 
 vim.cmd([[
+colorscheme dracula
 syntax enable
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
@@ -56,3 +57,4 @@ highlight SignColumn ctermbg=NONE guibg=NONE
 ]])
 
 vim.cmd([[autocmd TermOpen * setlocal nonumber]])
+
