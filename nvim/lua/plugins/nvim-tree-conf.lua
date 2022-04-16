@@ -1,9 +1,6 @@
 local M = {}
 
 function M.config()
-	vim.g.nvim_tree_quit_on_open = 0
-  vim.g.nvim_tree_indent_markers = 1
-  vim.g.nvim_tree_disable_window_picker = 1
   vim.g.nvim_tree_icon_padding = ' '
   vim.cmd([[let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile':  1, 'CMakeLists.txt': 1 }]])
   vim.g.nvim_tree_show_icons = {
@@ -59,8 +56,20 @@ function M.config()
       enable = true,
     },
     auto_open = false,
-    auto_close = true,
     update_cwd = true,
+    actions = {
+      open_file = {
+        quit_on_open = false,
+        window_picker = {
+          enable = false,
+        }
+      }
+    },
+    renderer = {
+      indent_markers = {
+        enable = true,
+      }
+    },
     view = {
       width = 40,
       side = 'left',

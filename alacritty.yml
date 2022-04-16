@@ -22,6 +22,7 @@ window:
     #     y: 30
     decorations: none
     startup_mode: Maximized
+    opacity: 0.85
 
 colors:
     primary:
@@ -46,4 +47,3 @@ colors:
         cyan:    '#a4ffff'
         white:   '#ffffff'
 
-background_opacity: 0.85
