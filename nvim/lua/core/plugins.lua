@@ -70,6 +70,7 @@ return require('packer').startup(function(use)
   }
   use 'vim-denops/denops.vim'
   use 'lambdalisue/guise.vim'
+  use 'ionide/ionide-vim'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()

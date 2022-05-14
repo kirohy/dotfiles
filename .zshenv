@@ -10,4 +10,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# dotnet for F#
+export PATH="$HOME/.dotnet/tools:$PATH"
+
 source $HOME/.zshenv_local
