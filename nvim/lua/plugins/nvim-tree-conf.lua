@@ -55,7 +55,6 @@ function M.config()
     diagnostics = {
       enable = true,
     },
-    auto_open = false,
     update_cwd = true,
     actions = {
       open_file = {
@@ -64,6 +63,9 @@ function M.config()
           enable = false,
         }
       }
+    },
+    hijack_directories = {
+      auto_open = false,
     },
     renderer = {
       indent_markers = {

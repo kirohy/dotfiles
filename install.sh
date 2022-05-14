@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt install zsh tmux vim conky-all curl python3-venv build-essential xclip
+sudo apt install zsh tmux curl python3-venv build-essential xclip
 chsh -s /usr/bin/zsh
 
 # tmux
@@ -74,7 +74,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
-  git checkout v0.9.0
+  git checkout v0.10.0
   cargo build --release
   sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
   sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
