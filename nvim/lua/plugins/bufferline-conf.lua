@@ -33,7 +33,8 @@ function M.config()
   function _G.BufdeleteCurrent()
     local buf_num = vim.api.nvim_eval([[bufnr('%')]])
     vim.api.nvim_command([[BufferLineCyclePrev]])
-    require('bufferline').handle_close_buffer(buf_num)
+    -- vim.api.nvim_command('bdelete! ')
+    require('bufferline').handle_close(buf_num)
   end
   vim.api.nvim_set_keymap('n', '<Leader>bd', [[<Cmd>lua BufdeleteCurrent()<CR>]], { noremap = true, silent = true })
 end
