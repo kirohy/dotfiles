@@ -24,7 +24,7 @@ ln -sf $HOME/dotfiles/nvim $HOME/.config/nvim
 cd $HOME/dotfiles/nvim
 python3 -m venv venv
 ./venv/bin/pip install --upgrade pip
-./venv/bin/pip install pynvim
+./venv/bin/pip install pynvim rospkg
 )
 
 # Lua Language server

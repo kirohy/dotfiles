@@ -1,3 +1,4 @@
 /nvim/venv/
-.netrwhist
 /nvim/plugin
+__pycache__
+.netrwhist
