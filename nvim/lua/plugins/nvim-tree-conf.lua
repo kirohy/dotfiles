@@ -1,44 +1,6 @@
 local M = {}
 
 function M.config()
-  vim.g.nvim_tree_icon_padding = ' '
-  vim.cmd([[let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile':  1, 'CMakeLists.txt': 1 }]])
-  vim.g.nvim_tree_show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 0,
-  }
-  vim.g.nvim_tree_icons = {
-    default = '',
-    symlink = '',
-    git = {
-      unstaged = '✗',
-      taged = '✓',
-      unmerged = '',
-      renamed = '➜',
-      untracked = '★',
-      deleted = '',
-      ignored = '◌'
-    },
-    folder = {
-      arrow_open = '',
-      arrow_closed = '',
-      default = '',
-      open = '',
-      empty = '',
-      empty_open = '',
-      symlink = '',
-      symlink_open = '',
-    },
-    lsp = {
-      hint = '',
-      info = '',
-      warning = '',
-      error = '',
-    }
-  }
-
   vim.cmd('highlight NvimTreeNormal ctermbg=NONE guibg=NONE')
   vim.cmd('autocmd FileType NvimTree lua NvimTree_my_settings()')
   function NvimTree_my_settings()
@@ -54,6 +16,12 @@ function M.config()
     hijack_netrw = false,
     diagnostics = {
       enable = true,
+      icons = {
+        hint = '',
+        info = '',
+        warning = '',
+        error = '',
+      },
     },
     update_cwd = true,
     actions = {
@@ -70,7 +38,40 @@ function M.config()
     renderer = {
       indent_markers = {
         enable = true,
-      }
+      },
+      icons = {
+        padding = " ",
+        show = {
+          file = true,
+          folder = true,
+          folder_arrow = false,
+          git = true,
+        },
+        glyphs = {
+          default = '',
+          symlink = '',
+          git = {
+            unstaged = '✗',
+            staged = '✓',
+            unmerged = '',
+            renamed = '➜',
+            untracked = '★',
+            deleted = '',
+            ignored = '◌'
+          },
+          folder = {
+            arrow_open = '',
+            arrow_closed = '',
+            default = '',
+            open = '',
+            empty = '',
+            empty_open = '',
+            symlink = '',
+            symlink_open = '',
+          },
+        },
+      },
+      special_files = { 'README.md', 'Makefile', 'CMakeLists.txt'},
     },
     view = {
       width = 40,
