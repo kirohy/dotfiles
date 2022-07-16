@@ -17,6 +17,7 @@ vim.o.wildmenu = true
 vim.o.splitbelow = true
 vim.o.termguicolors = true
 vim.o.pumblend = 10
+vim.o.spell = true
 
 vim.o.incsearch = true
 vim.o.hlsearch = true
@@ -35,6 +36,7 @@ vim.opt.clipboard:append{'unnamedplus'}
 vim.g.mapleader = ' '
 vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'
 
+
 vim.cmd([[
 autocmd BufNewFile,BufRead *.l set filetype=lisp
 autocmd BufNewFile,BufRead *.launch set filetype=xml
@@ -48,6 +50,7 @@ autocmd TermOpen * IndentBlanklineDisable
 vim.cmd([[
 colorscheme dracula
 syntax enable
+set spelllang=en,cjk
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE

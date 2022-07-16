@@ -66,3 +66,12 @@ function LuaCommentout()
   vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/-- \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
   vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/--<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
 end
+
+-- tex comment
+vim.cmd('autocmd FileType tex lua TexCommentout()')
+function TexCommentout()
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/\(\S\)/% \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/%<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/% \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/%<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+end

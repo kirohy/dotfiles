@@ -62,6 +62,12 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
   use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup()
+    end
+  }
+  use {
     'windwp/nvim-autopairs',
     config = require('plugins.nvim-autopairs').config,
   }

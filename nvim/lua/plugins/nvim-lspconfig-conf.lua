@@ -36,7 +36,7 @@ function M.config()
     }
   }
 
-  local servers = { 'clangd', 'pyright' }
+  local servers = { 'clangd', 'pyright', 'texlab' }
   for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

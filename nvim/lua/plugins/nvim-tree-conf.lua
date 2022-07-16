@@ -12,8 +12,6 @@ function M.config()
 
   local tree_cb = require'nvim-tree.config'.nvim_tree_callback
   require('nvim-tree').setup{
-    disable_netrw = false,
-    hijack_netrw = false,
     diagnostics = {
       enable = true,
       icons = {
@@ -24,14 +22,6 @@ function M.config()
       },
     },
     update_cwd = true,
-    actions = {
-      open_file = {
-        quit_on_open = false,
-        window_picker = {
-          enable = false,
-        }
-      }
-    },
     hijack_directories = {
       auto_open = false,
     },
@@ -40,35 +30,8 @@ function M.config()
         enable = true,
       },
       icons = {
-        padding = " ",
         show = {
-          file = true,
-          folder = true,
           folder_arrow = false,
-          git = true,
-        },
-        glyphs = {
-          default = '',
-          symlink = '',
-          git = {
-            unstaged = '✗',
-            staged = '✓',
-            unmerged = '',
-            renamed = '➜',
-            untracked = '★',
-            deleted = '',
-            ignored = '◌'
-          },
-          folder = {
-            arrow_open = '',
-            arrow_closed = '',
-            default = '',
-            open = '',
-            empty = '',
-            empty_open = '',
-            symlink = '',
-            symlink_open = '',
-          },
         },
       },
       special_files = { 'README.md', 'Makefile', 'CMakeLists.txt'},
