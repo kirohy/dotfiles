@@ -45,6 +45,8 @@ autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
 autocmd BufNewFile,BufRead *.rosinstall set filetype=yaml
 autocmd FileType lisp,lua,xml,yaml,cmake,vrml,sh setlocal tabstop=2 expandtab shiftwidth=2
 autocmd TermOpen * IndentBlanklineDisable
+autocmd TermOpen * setlocal nonumber
+autocmd TermOpen * setlocal nospell
 ]])
 
 vim.cmd([[
@@ -58,6 +60,4 @@ highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 highlight SignColumn ctermbg=NONE guibg=NONE
 ]])
-
-vim.cmd([[autocmd TermOpen * setlocal nonumber]])
 
