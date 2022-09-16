@@ -4,7 +4,10 @@ function M.config()
   require('bufferline').setup({
     options = {
       numbers = "none",
-      indicator_icon = '▎',
+      indicator = {
+        icon = '▎',
+        style = 'icon',
+      },
       buffer_close_icon = '',
       modified_icon = '●',
       close_icon = '',
