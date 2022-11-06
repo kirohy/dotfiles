@@ -92,8 +92,6 @@ function M.config()
       },
     },
   }
-
-  require('ionide').setup{}
 end
 
 return M

@@ -17,7 +17,6 @@ vim.o.wildmenu = true
 vim.o.splitbelow = true
 vim.o.termguicolors = true
 vim.o.pumblend = 10
-vim.o.spell = true
 
 vim.o.incsearch = true
 vim.o.hlsearch = true
@@ -44,6 +43,7 @@ autocmd BufNewFile,BufRead *.body set filetype=yaml
 autocmd BufNewFile,BufRead *.cnoid set filetype=yaml
 autocmd BufNewFile,BufRead *.rosinstall set filetype=yaml
 autocmd FileType lisp,lua,xml,yaml,cmake,vrml,sh setlocal tabstop=2 expandtab shiftwidth=2
+autocmd FileType tex setlocal spell spelllang=en_us
 autocmd TermOpen * IndentBlanklineDisable
 autocmd TermOpen * setlocal nonumber
 autocmd TermOpen * setlocal nospell
@@ -52,7 +52,6 @@ autocmd TermOpen * setlocal nospell
 vim.cmd([[
 colorscheme dracula
 syntax enable
-set spelllang=en,cjk
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE

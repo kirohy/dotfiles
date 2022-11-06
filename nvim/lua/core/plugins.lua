@@ -37,12 +37,6 @@ return require('packer').startup(function(use)
     config = require('plugins.bufferline-conf').config,
   }
   use {
-    'jpalardy/vim-slime',
-    opt = true,
-    ft = { 'python', 'lisp' },
-    config = require('plugins.vim-slime-conf').config,
-  }
-  use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     config = require('plugins.telescope-conf').config,
@@ -62,12 +56,6 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
   use {
-    'lewis6991/spellsitter.nvim',
-    config = function()
-      require('spellsitter').setup()
-    end
-  }
-  use {
     'windwp/nvim-autopairs',
     config = require('plugins.nvim-autopairs').config,
   }
@@ -77,7 +65,6 @@ return require('packer').startup(function(use)
   }
   use 'vim-denops/denops.vim'
   use 'lambdalisue/guise.vim'
-  use 'ionide/ionide-vim'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
