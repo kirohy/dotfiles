@@ -29,7 +29,7 @@ python3 -m venv venv
 
 # Lua Language server
 (
-git clone https://github.com/sumneko/lua-language-server $HOME/.lua-language-server
+git clone https://github.com/LuaLS/lua-language-server.git $HOME/.lua-language-server
 cd $HOME/.lua-language-server
 git submodule update --init --recursive
 cd 3rd/luamake
@@ -54,16 +54,6 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 
 # GUI Softwares
 if [ $# -eq 1 ] && [ $1 = "gui" ]; then
-  # vscode
-  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-  sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-  sudo apt install apt-transport-https
-  sudo apt update
-  sudo apt install code
-  # ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
-  # ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-  
   # vivaldi
   wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
   sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
@@ -74,7 +64,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
-  git checkout v0.10.0
+  git checkout v0.11.0
   cargo build --release
   sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
   sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
