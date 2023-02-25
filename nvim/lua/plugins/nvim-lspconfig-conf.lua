@@ -64,15 +64,15 @@ function M.config()
     }
   }
 
-  local sumneko_root_path = vim.fn.getenv("HOME").."/.lua-language-server"
-  local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
+  local lua_ls_root_path = vim.fn.getenv("HOME").."/.lua-language-server"
+  local lua_ls_binary = lua_ls_root_path .. '/bin/lua-language-server'
 
   local runtime_path = vim.split(package.path, ';')
   table.insert(runtime_path, 'lua/?.lua')
   table.insert(runtime_path, 'lua/?/init.lua')
 
-  nvim_lsp.sumneko_lua.setup {
-    cmd = { sumneko_binary },
+  nvim_lsp.lua_ls.setup {
+    cmd = { lua_ls_binary },
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {

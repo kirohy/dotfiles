@@ -7,5 +7,9 @@ source $HOME/.cargo/env
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# node
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init - zsh)"
+
 source $HOME/.zshenv_local
 

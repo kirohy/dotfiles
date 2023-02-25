@@ -41,13 +41,21 @@ return require('packer').startup(function(use)
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     config = require('plugins.telescope-conf').config,
   }
+  use 'stevearc/dressing.nvim'
   use {
     'neovim/nvim-lspconfig',
     config = require('plugins.nvim-lspconfig-conf').config,
   }
   use {
     'hrsh7th/nvim-cmp',
-    requires = {{ 'hrsh7th/cmp-nvim-lsp' }, { 'saadparwaiz1/cmp_luasnip' }, { 'L3MON4D3/LuaSnip' }, { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' }},
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'L3MON4D3/LuaSnip' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'onsails/lspkind.nvim' }
+    },
     config = require('plugins.nvim-cmp-conf').config
   }
   use {
@@ -65,6 +73,25 @@ return require('packer').startup(function(use)
   }
   use 'vim-denops/denops.vim'
   use 'lambdalisue/guise.vim'
+  use {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        copilot_node_command = vim.fn.expand('$HOME') .. '/.nodenv/versions/17.9.1/bin/node'
+      })
+    end,
+  }
+  use {
+    'zbirenbaum/copilot-cmp',
+    after = { 'copilot.lua' },
+    config = function ()
+      require('copilot_cmp').setup()
+    end
+  }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()

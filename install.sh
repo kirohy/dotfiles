@@ -41,6 +41,18 @@ cd ../..
 # Denops
 curl -fsSL https://deno.land/x/install/install.sh | sh
 
+# nodejs
+(
+git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
+cd $HOME/.nodenv && src/configure && make -C src
+mkdir -p $HOME/.nodenv/plugins
+git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build
+./bin/nodenv init
+./bin/nodenv install 17.9.1 # copilot
+./bin/nodenv install 18.14.2 # LTS
+./bin/nodenv global 18.14.2
+)
+
 # Link dotfiles
 ln -sf $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 cp $HOME/dotfiles/.gitconfig.local $HOME/.gitconfig.local
