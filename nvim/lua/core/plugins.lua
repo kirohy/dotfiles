@@ -22,18 +22,18 @@ return require('packer').startup(function(use)
   }
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = require('plugins.lualine-conf').config,
   }
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true  },
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = require('plugins.nvim-tree-conf').config,
   }
   use {
     'akinsho/nvim-bufferline.lua',
     tag = "v2.*",
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = require('plugins.bufferline-conf').config,
   }
   use {
@@ -41,7 +41,6 @@ return require('packer').startup(function(use)
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     config = require('plugins.telescope-conf').config,
   }
-  use 'stevearc/dressing.nvim'
   use {
     'neovim/nvim-lspconfig',
     config = require('plugins.nvim-lspconfig-conf').config,
@@ -50,10 +49,12 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = {
       { 'hrsh7th/cmp-nvim-lsp' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'L3MON4D3/LuaSnip' },
+      { 'hrsh7th/cmp-nvim-lua' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'L3MON4D3/LuaSnip' },
       { 'onsails/lspkind.nvim' }
     },
     config = require('plugins.nvim-cmp-conf').config
@@ -71,8 +72,6 @@ return require('packer').startup(function(use)
     'lukas-reineke/indent-blankline.nvim',
     config = function() vim.g.indent_blankline_char = '│' end,
   }
-  use 'vim-denops/denops.vim'
-  use 'lambdalisue/guise.vim'
   use {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
@@ -90,6 +89,34 @@ return require('packer').startup(function(use)
     after = { 'copilot.lua' },
     config = function ()
       require('copilot_cmp').setup()
+    end
+  }
+  use {
+    'folke/noice.nvim',
+    config = function ()
+      require('noice').setup()
+    end,
+    requires = {
+      { 'MunifTanjim/nui.nvim' },
+      {
+        'rcarriga/nvim-notify',
+        config = function()
+          require('notify').setup({
+            background_colour = '#191A21',
+          })
+        end,
+      },
+    }
+  }
+  use {
+    'voldikss/vim-floaterm',
+    cmd = { 'FloatermNew', 'FloatermToggle' },
+    config = function ()
+      vim.api.nvim_create_autocmd('User', { pattern = 'FloatermOpen', command = 'tnoremap <buffer> <silent> <M-t> <C-\\><C-n>:FloatermToggle<CR>' })
+      vim.api.nvim_create_autocmd('User', { pattern = 'FloatermOpen', command = 'tnoremap <buffer> <silent> <C-n> <C-\\><C-n>:FloatermNew<CR>' })
+      vim.api.nvim_create_autocmd('User', { pattern = 'FloatermOpen', command = 'tnoremap <buffer> <silent> <C-h> <C-\\><C-n>:FloatermPrev<CR>' })
+      vim.api.nvim_create_autocmd('User', { pattern = 'FloatermOpen', command = 'tnoremap <buffer> <silent> <C-l> <C-\\><C-n>:FloatermNext<CR>' })
+      vim.api.nvim_create_autocmd('QuitPre', { command = 'FloatermKill!'})
     end
   }
 

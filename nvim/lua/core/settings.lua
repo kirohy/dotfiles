@@ -8,6 +8,7 @@ vim.o.writebackup = false
 vim.wo.cursorline = true
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
+vim.o.cmdheight = 0
 vim.o.laststatus = 2
 vim.o.showmode = false
 vim.o.showcmd = true
@@ -29,28 +30,29 @@ vim.o.smartindent = true
 vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
+vim.o.updatetime = 250
 
 vim.opt.clipboard:append{'unnamedplus'}
 
 vim.g.mapleader = ' '
 vim.g.python3_host_prog = vim.env.HOME .. '/.config/nvim/venv/bin/python3'
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = "*.l",      command = "set filetype=lisp" })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = "*.launch", command = "set filetype=xml"  })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = "*.tex",    command = "set filetype=tex"  })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = { "*.body", "*.cnoid", "*.rosinstall" }, command = "set filetype=yaml" })
-vim.api.nvim_create_autocmd("FileType", { pattern = { "lisp", "lua", "xml", "yaml", "cmake", "vrml", "sh", "tex" }, command = "setlocal tabstop=2 expandtab shiftwidth=2" })
--- vim.api.nvim_create_autocmd("FileType", { pattern = "tex", command = "setlocal spell spelllang=en_us" })
-vim.api.nvim_create_autocmd("TermOpen", { command = "IndentBlanklineDisable" })
-vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nonumber" })
-vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nospell" })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.l',      command = 'set filetype=lisp' })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.launch', command = 'set filetype=xml'  })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.tex',    command = 'set filetype=tex'  })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = { '*.body', '*.cnoid', '*.rosinstall' }, command = 'set filetype=yaml' })
+vim.api.nvim_create_autocmd('FileType', { pattern = { 'lisp', 'lua', 'xml', 'yaml', 'cmake', 'vrml', 'sh', 'tex' }, command = 'setlocal tabstop=2 expandtab shiftwidth=2' })
+-- vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', command = 'setlocal spell spelllang=en_us' })
+vim.api.nvim_create_autocmd('TermOpen', { command = 'IndentBlanklineDisable' })
+vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber' })
+vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nospell' })
 
-vim.cmd.colorscheme("dracula")
-vim.cmd("syntax enable")
-vim.cmd.highlight({ "Normal",      "ctermbg=NONE guibg=NONE" })
-vim.cmd.highlight({ "NonText",     "ctermbg=NONE guibg=NONE" })
-vim.cmd.highlight({ "LineNr",      "ctermbg=NONE guibg=NONE" })
-vim.cmd.highlight({ "Folded",      "ctermbg=NONE guibg=NONE" })
-vim.cmd.highlight({ "EndOfBuffer", "ctermbg=NONE guibg=NONE" })
-vim.cmd.highlight({ "SignColumn",  "ctermbg=NONE guibg=NONE" })
+vim.cmd.colorscheme('dracula')
+vim.cmd('syntax enable')
+vim.cmd.highlight({ 'Normal',      'ctermbg=NONE guibg=NONE' })
+vim.cmd.highlight({ 'NonText',     'ctermbg=NONE guibg=NONE' })
+vim.cmd.highlight({ 'LineNr',      'ctermbg=NONE guibg=NONE' })
+vim.cmd.highlight({ 'Folded',      'ctermbg=NONE guibg=NONE' })
+vim.cmd.highlight({ 'EndOfBuffer', 'ctermbg=NONE guibg=NONE' })
+vim.cmd.highlight({ 'SignColumn',  'ctermbg=NONE guibg=NONE' })
 

@@ -1,3 +1,4 @@
+-- buitin
 vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ';', ':', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true })
@@ -75,3 +76,7 @@ function TexCommentout()
   vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/% \1/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
   vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/%<Space>//<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
 end
+
+-- plugin
+vim.keymap.set('n', '<M-t>', ':FloatermToggle<CR>', { noremap = true, silent = true })
+

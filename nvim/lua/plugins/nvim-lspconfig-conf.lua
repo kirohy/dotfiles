@@ -2,17 +2,9 @@ local M = {}
 
 function M.config()
   local nvim_lsp = require('lspconfig')
-  local lsp_defaults = nvim_lsp.util.default_config
 
-  lsp_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
-    lsp_defaults.capabilities,
-    require('cmp_nvim_lsp').default_capabilities()
-  )
-
-  local opts = { noremap=true, silent=true }
-  vim.keymap.set('n', '<Leader>dp', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', '<Leader>dn', vim.diagnostic.goto_next, opts)
+  vim.keymap.set('n', '<Leader>dp', vim.diagnostic.goto_prev, { noremap=true, silent=true })
+  vim.keymap.set('n', '<Leader>dn', vim.diagnostic.goto_next, { noremap=true, silent=true })
 
   local on_attach = function(_, bufnr)
     local bufopts = { noremap=true, silent=true }
@@ -32,7 +24,24 @@ function M.config()
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', bufopts)
     buf_set_keymap('n', '<Leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', bufopts)
     -- buf_set_keymap('n', '<Leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', bufopts)
-    buf_set_keymap("n", "<Leader>fm", '<cmd>lua vim.lsp.buf.formatting()<CR>', bufopts)
+    buf_set_keymap('n', '<Leader>fm', '<cmd>lua vim.lsp.buf.formatting()<CR>', bufopts)
+
+    vim.api.nvim_create_autocmd(
+      { 'CursorHold', 'CursorHoldI' },
+      {
+        buffer = bufnr,
+        callback = function()
+          local opts = {
+            focusable = false,
+            close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+            border = 'single',
+            source = 'always',
+            prefix = ' ',
+            scope = 'cursor',
+          }
+          vim.diagnostic.open_float(nil, opts)
+        end
+      })
   end
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities()

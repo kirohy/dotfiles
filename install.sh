@@ -38,9 +38,6 @@ cd ../..
 ./3rd/luamake/luamake rebuild
 )
 
-# Denops
-curl -fsSL https://deno.land/x/install/install.sh | sh
-
 # nodejs
 (
 git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv

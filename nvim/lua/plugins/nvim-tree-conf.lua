@@ -14,12 +14,6 @@ function M.config()
   require('nvim-tree').setup{
     diagnostics = {
       enable = true,
-      icons = {
-        hint = '',
-        info = '',
-        warning = '',
-        error = '',
-      },
     },
     update_cwd = true,
     hijack_directories = {
