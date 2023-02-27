@@ -1,16 +1,22 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local packer_group = vim.api.nvim_create_augroup('packer_user_config', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = 'plugins.lua',
+  command = 'source <afile> | PackerCompile',
+  group = packer_group,
+})
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.api.nvim_command("packadd packer.nvim")
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -32,12 +38,13 @@ return require('packer').startup(function(use)
   }
   use {
     'akinsho/nvim-bufferline.lua',
-    tag = "v2.*",
+    tag = 'v3.*',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = require('plugins.bufferline-conf').config,
   }
   use {
     'nvim-telescope/telescope.nvim',
+    tag = '0.1.*',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     config = require('plugins.telescope-conf').config,
   }
@@ -66,7 +73,7 @@ return require('packer').startup(function(use)
   }
   use {
     'windwp/nvim-autopairs',
-    config = require('plugins.nvim-autopairs').config,
+    config = require('plugins.nvim-autopairs-conf').config,
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
@@ -120,7 +127,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  if PACKER_BOOTSTRAP then
+  if packer_bootstrap then
     require('packer').sync()
   end
 end)

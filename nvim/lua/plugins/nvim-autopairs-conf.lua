@@ -1,11 +1,11 @@
 local M = {}
 
 function M.config()
-	require('nvim-autopairs').setup {
-		check_ts = true,
-		enable_check_bracket_line = true,
-		map_cr = true,
-		map_complete = true,
+  require('nvim-autopairs').setup {
+    check_ts = true,
+    enable_check_bracket_line = true,
+    map_cr = true,
+    map_complete = true,
   }
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
   local cmp = require('cmp')

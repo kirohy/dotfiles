@@ -5,7 +5,7 @@ function M.config()
 
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
   end
 
   local cmp = require('cmp')
@@ -13,10 +13,10 @@ function M.config()
   local lspkind = require('lspkind')
   lspkind.init({
     symbol_map = {
-      Copilot = "",
+      Copilot = '',
     },
   })
-  vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg = "#6CC644" })
+  vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', {fg = '#6CC644' })
 
   cmp.setup {
     sources = {
@@ -43,7 +43,7 @@ function M.config()
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       },
-      ["<Tab>"] = cmp.mapping(function(fallback)
+      ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -53,8 +53,8 @@ function M.config()
         else
           fallback()
         end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
+      end, { 'i', 's' }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
@@ -62,7 +62,7 @@ function M.config()
         else
           fallback()
         end
-      end, { "i", "s" }),
+      end, { 'i', 's' }),
     },
     window = {
       documentation = cmp.config.window.bordered({
@@ -71,7 +71,7 @@ function M.config()
       })
     },
     formatting = {
-      format = lspkind.cmp_format({ mode = "symbol_text" })
+      format = lspkind.cmp_format({ mode = 'symbol_text' })
     }
   }
   cmp.setup.cmdline('/', {

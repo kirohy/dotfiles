@@ -58,10 +58,10 @@ function M.config()
     on_attach=on_attach,
     capabilities = capabilities,
     settings = {
-      ["rust-analyzer"] = {
+      ['rust-analyzer'] = {
         assist = {
-          importGranularity = "module",
-          importPrefix = "by_self",
+          importGranularity = 'module',
+          importPrefix = 'by_self',
         },
         cargo = {
           loadOutDirsFromCheck = true
@@ -73,7 +73,7 @@ function M.config()
     }
   }
 
-  local lua_ls_root_path = vim.fn.getenv("HOME").."/.lua-language-server"
+  local lua_ls_root_path = vim.fn.getenv('HOME')..'/.lua-language-server'
   local lua_ls_binary = lua_ls_root_path .. '/bin/lua-language-server'
 
   local runtime_path = vim.split(package.path, ';')

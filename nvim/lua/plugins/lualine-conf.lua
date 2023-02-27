@@ -13,12 +13,12 @@ function M.config()
       },
       lualine_c = { 'filename' },
       lualine_x = {
-				{ 'diagnostics', sources = { 'nvim_diagnostic' } }
-			},
+        { 'diagnostics', sources = { 'nvim_diagnostic' } }
+      },
       lualine_y = { 'encoding', 'fileformat', 'filetype' },
       lualine_z = { 'progress', 'location' },
     },
-  	extensions = { 'nvim-tree' },
+    extensions = { 'nvim-tree' },
   })
 end
 
