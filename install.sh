@@ -31,6 +31,7 @@ python3 -m venv venv
 (
 git clone https://github.com/LuaLS/lua-language-server.git $HOME/.lua-language-server
 cd $HOME/.lua-language-server
+git co v3.6.11 # 18.04
 git submodule update --init --recursive
 cd 3rd/luamake
 ./compile/install.sh
