@@ -56,9 +56,10 @@ cp $HOME/dotfiles/.gitconfig.local $HOME/.gitconfig.local
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/dotfiles/.zshenv $HOME/.zshenv
 ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
+cp $HOME/dotfiles/.ros.zsh $HOME/.ros.zsh
 touch $HOME/.zshenv_local
 mkdir -p $HOME/.config/bat
-ln -sf $HOME/dotfiles/bat.config $HOME/.config/bat/conf
+ln -sf $HOME/dotfiles/bat.config $HOME/.config/bat/config
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 
 # GUI Softwares
@@ -73,7 +74,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
-  git checkout v0.11.0
+  git checkout v0.12.0
   cargo build --release
   sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
   sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
@@ -81,7 +82,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
   mkdir -p $HOME/.config/alacritty
-  cp $HOME/dotfiles/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+  ln -sf $HOME/dotfiles/alacritty.yml $HOME/.config/alacritty/alacritty.yml
   )
 
   # Ubuntu gnome
