@@ -22,24 +22,28 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'Mofiqul/dracula.nvim'
   use {
+    'nvim-tree/nvim-web-devicons',
+    tag = 'nerd-v2-compat',
+  }
+  use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = require('plugins.gitsigns-conf').config,
   }
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = { 'nvim-tree/nvim-web-devicons' },
     config = require('plugins.lualine-conf').config,
   }
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' },
     config = require('plugins.nvim-tree-conf').config,
   }
   use {
     'akinsho/nvim-bufferline.lua',
-    tag = 'v3.*',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    tag = '*',
+    requires = { 'nvim-tree/nvim-web-devicons' },
     config = require('plugins.bufferline-conf').config,
   }
   use {

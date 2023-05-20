@@ -9,7 +9,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . $HOME/.cargo/env
-cargo install exa bat ripgrep
+cargo install exa bat ripgrep cargo-update
 
 # Neovim
 (
@@ -47,8 +47,7 @@ mkdir -p $HOME/.nodenv/plugins
 git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build
 ./bin/nodenv init
 ./bin/nodenv install 17.9.1 # copilot
-./bin/nodenv install 18.14.2 # LTS
-./bin/nodenv global 18.14.2
+./bin/nodenv global 17.9.1
 )
 
 # Link dotfiles
@@ -98,10 +97,10 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   # font
   (
   cd $HOME/Downloads
-  FONT_ADDRESS=$(curl -v https://api.github.com/repos/yuru7/HackGen/releases/latest | jq -r '.assets[0].url')
-  curl -L -H 'Accept: application/octet-stream' "$FONT_ADDRESS" -o HackGenNerd.zip
-  unzip HackGenNerd.zip
-  cp ./HackGenNerd*/HackGenNerdConsole-Regular.ttf $HOME/.local/share/fonts/
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/JetBrainsMono.zip
+  unzip JetBrainsMono.zip
+  mkdir -p $HOME/.local/share/fonts
+  cp ./JetBrainsMono/JetBrainsMonoNerdFontMono-* $HOME/.local/share/fonts/
   )
   
   # Conky Config

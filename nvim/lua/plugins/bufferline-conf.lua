@@ -8,11 +8,6 @@ function M.config()
         icon = '▎',
         style = 'icon',
       },
-      buffer_close_icon = '',
-      modified_icon = '●',
-      close_icon = '',
-      left_trunc_marker = '',
-      right_trunc_marker = '',
       max_name_length = 25,
       max_prefix_length = 15,
       tab_size = 25,
@@ -36,7 +31,7 @@ function M.config()
   function _G.BufdeleteCurrent()
     local buf_num = vim.api.nvim_get_current_buf()
     vim.api.nvim_command([[BufferLineCyclePrev]])
-    vim.api.nvim_command(string.format('bdelete %d', buf_num))
+    vim.api.nvim_command(string.format('bdelete! %d', buf_num))
   end
   vim.api.nvim_set_keymap('n', '<Leader>bd', [[<Cmd>lua BufdeleteCurrent()<CR>]], { noremap = true, silent = true })
 end
