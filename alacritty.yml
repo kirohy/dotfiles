@@ -3,13 +3,13 @@ env:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: HackGen Console NF
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: HackGen Console NF
     style: bold
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: HackGen Console NF
     style: italic
   size: 13
 

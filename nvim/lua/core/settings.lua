@@ -43,7 +43,6 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.tex',   
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = { '*.body', '*.cnoid', '*.rosinstall' }, command = 'set filetype=yaml' })
 vim.api.nvim_create_autocmd('FileType', { pattern = { 'lisp', 'lua', 'xml', 'yaml', 'cmake', 'vrml', 'sh', 'tex' }, command = 'setlocal tabstop=2 expandtab shiftwidth=2' })
 -- vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', command = 'setlocal spell spelllang=en_us' })
-vim.api.nvim_create_autocmd('TermOpen', { command = 'IndentBlanklineDisable' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nospell' })
 

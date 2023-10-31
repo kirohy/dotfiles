@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt install zsh tmux curl python3-venv build-essential xclip
+sudo apt install zsh tmux curl python3-venv build-essential xclip jq
 chsh -s /usr/bin/zsh
 
 # tmux
@@ -17,7 +17,7 @@ sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake
 git clone https://github.com/neovim/neovim $HOME/neovim
 cd $HOME/neovim
 git checkout stable
-make CMAKE_BUILD_TYPE=Release -j4
+make CMAKE_BUILD_TYPE=Release
 sudo make install
 mkdir -p $HOME/.config
 ln -sf $HOME/dotfiles/nvim $HOME/.config/nvim
@@ -77,7 +77,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   git checkout v0.12.0
   cargo build --release
   sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-  sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+  sudo cp target/release/alacritty /usr/local/bin
   sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
@@ -98,10 +98,12 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   # font
   (
   cd $HOME/Downloads
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/JetBrainsMono.zip
-  unzip JetBrainsMono.zip
+  FONT_ADDRESS=$(curl -s https://api.github.com/repos/yuru7/HackGen/releases/latest | jq -r '.assets[0].browser_download_url')
+  FONT_ZIP=${FONT_ADDRESS##*/}
+  wget $FONT_ADDRESS
+  unzip $FONT_ZIP
   mkdir -p $HOME/.local/share/fonts
-  cp ./JetBrainsMono/JetBrainsMonoNerdFontMono-* $HOME/.local/share/fonts/
+  cp ./${FONT_ZIP%.*}/HakGenConsoleNF* $HOME/.local/share/fonts/
   )
   
   # Conky Config

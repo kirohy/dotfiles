@@ -22,10 +22,6 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'Mofiqul/dracula.nvim'
   use {
-    'nvim-tree/nvim-web-devicons',
-    tag = 'nerd-v2-compat',
-  }
-  use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = require('plugins.gitsigns-conf').config,
@@ -81,27 +77,33 @@ return require('packer').startup(function(use)
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = function() vim.g.indent_blankline_char = '│' end,
-  }
-  use {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
     config = function()
-      require('copilot').setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        copilot_node_command = vim.fn.expand('$HOME') .. '/.nodenv/versions/17.9.1/bin/node'
+      require('ibl').setup({
+        exclude = {
+          buftypes = { 'terminal' }
+        }
       })
     end,
   }
-  use {
-    'zbirenbaum/copilot-cmp',
-    after = { 'copilot.lua' },
-    config = function ()
-      require('copilot_cmp').setup()
-    end
-  }
+  -- use {
+    -- 'zbirenbaum/copilot.lua',
+    -- cmd = 'Copilot',
+    -- event = 'InsertEnter',
+    -- config = function()
+      -- require('copilot').setup({
+        -- suggestion = { enabled = false },
+        -- panel = { enabled = false },
+        -- copilot_node_command = vim.fn.expand('$HOME') .. '/.nodenv/versions/17.9.1/bin/node'
+      -- })
+    -- end,
+  -- }
+  -- use {
+    -- 'zbirenbaum/copilot-cmp',
+    -- after = { 'copilot.lua' },
+    -- config = function ()
+      -- require('copilot_cmp').setup()
+    -- end
+  -- }
   use {
     'folke/noice.nvim',
     config = function ()
