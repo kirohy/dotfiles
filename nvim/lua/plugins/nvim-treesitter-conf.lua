@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-  require('nvim-treesitter.configs').setup {
+  require('nvim-treesitter.configs').setup({
     ensure_installed = { 'cpp', 'c', 'cmake', 'json', 'julia', 'latex', 'lua', 'python', 'rust', 'toml', 'yaml' },
     highlight = {
       enable = true,
@@ -16,7 +16,7 @@ function M.config()
     autopairs = {
       enable = true,
     },
-  }
+  })
 end
 
 return M

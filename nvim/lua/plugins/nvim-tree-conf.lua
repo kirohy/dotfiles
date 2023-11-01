@@ -1,12 +1,12 @@
 local M = {}
 
 function M.config()
-  vim.cmd.highlight({'NvimTreeNormal', 'ctermbg=NONE guibg=NONE'})
+  vim.cmd.highlight({ 'NvimTreeNormal', 'ctermbg=NONE guibg=NONE' })
   vim.api.nvim_create_autocmd('FileType', {
     pattern = 'NvimTree',
-    callback = function ()
+    callback = function()
       vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>r', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
-    end
+    end,
   })
   vim.api.nvim_set_keymap('n', '<Leader>ex', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<Leader>tr', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
@@ -25,7 +25,7 @@ function M.config()
     vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
   end
 
-  require('nvim-tree').setup{
+  require('nvim-tree').setup({
     on_attach = on_attach,
     diagnostics = {
       enable = true,
@@ -43,13 +43,13 @@ function M.config()
           folder_arrow = false,
         },
       },
-      special_files = { 'README.md', 'Makefile', 'CMakeLists.txt'},
+      special_files = { 'README.md', 'Makefile', 'CMakeLists.txt' },
     },
     view = {
       width = 40,
       side = 'left',
-    }
-  }
+    },
+  })
 end
 
 return M

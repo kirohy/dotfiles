@@ -9,7 +9,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . $HOME/.cargo/env
-cargo install exa bat ripgrep cargo-update
+cargo install exa bat ripgrep cargo-update stylua
 
 # Neovim
 (
@@ -40,15 +40,15 @@ cd ../..
 )
 
 # nodejs
-(
-git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
-cd $HOME/.nodenv && src/configure && make -C src
-mkdir -p $HOME/.nodenv/plugins
-git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build
-./bin/nodenv init
-./bin/nodenv install 17.9.1 # copilot
-./bin/nodenv global 17.9.1
-)
+# (
+# git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
+# cd $HOME/.nodenv && src/configure && make -C src
+# mkdir -p $HOME/.nodenv/plugins
+# git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build
+# ./bin/nodenv init
+# ./bin/nodenv install 17.9.1 # copilot
+# ./bin/nodenv global 17.9.1
+# )
 
 # Link dotfiles
 ln -sf $HOME/dotfiles/.gitconfig $HOME/.gitconfig

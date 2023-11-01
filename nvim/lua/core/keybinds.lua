@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/<!--<Space>//<CR>:s/<Space>-->//<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S.\{-}\)\ze\n/<!-- \1 -->/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/\(<!--<Space>\|<Space>-->\)//g<CR>:nohlsearch<CR>]], keymap_opts)
-  end
+  end,
 })
 
 -- '/' comment
@@ -44,18 +44,18 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/\/\/<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/\/\/ \1/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/\/\/<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
-  end
+  end,
 })
 
 -- '#' comment
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'python' , 'cmake', 'yaml', 'toml', 'sh' },
+  pattern = { 'python', 'cmake', 'yaml', 'toml', 'sh' },
   callback = function()
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>co', [[:s/\(\S\)/# \1/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/#<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/# \1/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/#<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
-  end
+  end,
 })
 
 -- ';;' comment
@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/;;<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/;; \1/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/;;<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
-  end
+  end,
 })
 
 -- '--' comment
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/--<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/-- \1/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/--<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
-  end
+  end,
 })
 
 -- '%' comment
@@ -88,9 +88,8 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>ci', [[:s/%<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>co', [[:s/\(\S\)/% \1/<CR>:nohlsearch<CR>]], keymap_opts)
     vim.api.nvim_buf_set_keymap(0, 'v', '<Leader>ci', [[:s/%<Space>//<CR>:nohlsearch<CR>]], keymap_opts)
-  end
+  end,
 })
 
 -- plugin
 vim.keymap.set('n', '<M-t>', ':FloatermToggle<CR>', keymap_opts)
-

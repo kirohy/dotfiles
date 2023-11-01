@@ -3,7 +3,7 @@ local M = {}
 function M.config()
   local actions = require('telescope.actions')
 
-  require('telescope').setup {
+  require('telescope').setup({
     defaults = {
       mappings = {
         i = {
@@ -14,7 +14,7 @@ function M.config()
         },
       },
     },
-  }
+  })
 
   vim.api.nvim_set_keymap('n', '<Leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<Leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })

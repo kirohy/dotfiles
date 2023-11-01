@@ -2,3 +2,4 @@
 /nvim/plugin
 __pycache__
 .netrwhist
+.luarc.json

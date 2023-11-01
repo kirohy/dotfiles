@@ -12,7 +12,7 @@ function M.config()
       max_prefix_length = 15,
       tab_size = 25,
       diagnostics = 'nvim_lsp',
-      offsets = {{ filetype = 'NvimTree', text = 'NvimTree', text_align = 'center' }},
+      offsets = { { filetype = 'NvimTree', text = 'NvimTree', text_align = 'center' } },
       show_buffer_icons = true,
       show_buffer_close_icons = true,
       show_close_icon = true,
@@ -20,7 +20,7 @@ function M.config()
       separator_style = 'thin',
       enforce_regular_tabs = false,
       always_show_bufferline = true,
-    }
+    },
   })
   vim.api.nvim_set_keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })

@@ -1,13 +1,13 @@
 local M = {}
 
 function M.config()
-  require('gitsigns').setup {
+  require('gitsigns').setup({
     signs = {
-      add          = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-      change       = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-      delete       = { hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-      topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-      changedelete = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+      add = { hl = 'GitSignsAdd', text = '+', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+      change = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      delete = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+      topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+      changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
@@ -17,18 +17,26 @@ function M.config()
         vim.keymap.set(mode, l, r, opts)
       end
       map('n', '<Leader>hn', function()
-        if vim.wo.diff then return '<Leader>hn' end
-        vim.schedule(function() gs.next_hunk() end)
+        if vim.wo.diff then
+          return '<Leader>hn'
+        end
+        vim.schedule(function()
+          gs.next_hunk()
+        end)
         return '<Ignore>'
-      end, {noremap=true, expr=true})
+      end, { noremap = true, expr = true })
 
       map('n', '<Leader>hp', function()
-        if vim.wo.diff then return '<Leader>hp' end
-        vim.schedule(function() gs.prev_hunk() end)
+        if vim.wo.diff then
+          return '<Leader>hp'
+        end
+        vim.schedule(function()
+          gs.prev_hunk()
+        end)
         return '<Ignore>'
-      end, {noremap=true, expr=true})
-    end
-  }
+      end, { noremap = true, expr = true })
+    end,
+  })
 end
 
 return M
