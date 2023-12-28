@@ -1,4 +1,7 @@
 #!/bin/sh
+sudo apt -y install language-pack-ja
+$ sudo update-locale LANG=ja_JP.UTF8
+
 sudo apt install zsh tmux curl python3-venv build-essential xclip jq
 chsh -s /usr/bin/zsh
 
@@ -9,7 +12,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . $HOME/.cargo/env
-cargo install exa bat ripgrep cargo-update stylua
+cargo install exa bat ripgrep cargo-update stylua texlab
 
 # Neovim
 (

@@ -77,34 +77,9 @@ return require('packer').startup(function(use)
   })
   use({
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('ibl').setup({
-        exclude = {
-          buftypes = { 'terminal' },
-        },
-      })
-    end,
+    config = require('ibl').setup(),
   })
-  -- use {
-  -- 'zbirenbaum/copilot.lua',
-  -- cmd = 'Copilot',
-  -- event = 'InsertEnter',
-  -- config = function()
-  -- require('copilot').setup({
-  -- suggestion = { enabled = false },
-  -- panel = { enabled = false },
-  -- copilot_node_command = vim.fn.expand('$HOME') .. '/.nodenv/versions/17.9.1/bin/node'
-  -- })
-  -- end,
-  -- }
-  -- use {
-  -- 'zbirenbaum/copilot-cmp',
-  -- after = { 'copilot.lua' },
-  -- config = function ()
-  -- require('copilot_cmp').setup()
-  -- end
-  -- }
-  use({
+  use ({
     'folke/noice.nvim',
     config = function()
       require('noice').setup()

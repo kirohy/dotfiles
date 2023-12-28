@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.launch',
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.tex', command = 'set filetype=tex' })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = { '*.body', '*.cnoid', '*.rosinstall' }, command = 'set filetype=yaml' })
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lisp', 'lua', 'xml', 'yaml', 'cmake', 'vrml', 'sh', 'tex' },
+  pattern = { 'lisp', 'lua', 'xml', 'yaml', 'cmake', 'vrml', 'sh', 'tex', 'bib' },
   command = 'setlocal tabstop=2 expandtab shiftwidth=2',
 })
 -- vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', command = 'setlocal spell spelllang=en_us' })
