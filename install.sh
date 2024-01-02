@@ -77,7 +77,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
-  git checkout v0.12.0
+  git checkout v0.13.0
   cargo build --release
   sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
   sudo cp target/release/alacritty /usr/local/bin
@@ -85,7 +85,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
   mkdir -p $HOME/.config/alacritty
-  ln -sf $HOME/dotfiles/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+  ln -sf $HOME/dotfiles/alacritty.toml $HOME/.config/alacritty/alacritty.toml
   )
 
   # Ubuntu gnome
