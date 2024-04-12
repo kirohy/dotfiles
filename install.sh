@@ -1,8 +1,8 @@
 #!/bin/sh
 sudo apt -y install language-pack-ja
-$ sudo update-locale LANG=ja_JP.UTF8
+sudo update-locale LANG=ja_JP.UTF8
 
-sudo apt install zsh tmux curl python3-venv build-essential xclip jq
+sudo apt install zsh tmux curl python3-venv build-essential xclip
 chsh -s /usr/bin/zsh
 
 # tmux
@@ -16,7 +16,7 @@ cargo install exa bat ripgrep cargo-update stylua texlab
 
 # Neovim
 (
-sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
+sudo apt install ninja-build gettext cmake unzip curl build-essential
 git clone https://github.com/neovim/neovim $HOME/neovim
 cd $HOME/neovim
 git checkout stable
@@ -34,12 +34,7 @@ python3 -m venv venv
 (
 git clone https://github.com/LuaLS/lua-language-server.git $HOME/.lua-language-server
 cd $HOME/.lua-language-server
-git co v3.6.11 # 18.04
-git submodule update --init --recursive
-cd 3rd/luamake
-./compile/install.sh
-cd ../..
-./3rd/luamake/luamake rebuild
+./make.sh
 )
 
 # nodejs
@@ -67,11 +62,6 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 
 # GUI Softwares
 if [ $# -eq 1 ] && [ $1 = "gui" ]; then
-  # vivaldi
-  wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
-  sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
-  sudo apt update && sudo apt install vivaldi-stable
-
   # Alacritty
   (
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
@@ -100,13 +90,14 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   
   # font
   (
+  sudo apt install jq
   cd $HOME/Downloads
   FONT_ADDRESS=$(curl -s https://api.github.com/repos/yuru7/HackGen/releases/latest | jq -r '.assets[0].browser_download_url')
   FONT_ZIP=${FONT_ADDRESS##*/}
   wget $FONT_ADDRESS
   unzip $FONT_ZIP
   mkdir -p $HOME/.local/share/fonts
-  cp ./${FONT_ZIP%.*}/HakGenConsoleNF* $HOME/.local/share/fonts/
+  cp $HOME/Downloads/${FONT_ZIP%.*}/HakGenConsoleNF* $HOME/.local/share/fonts/
   )
   
   # Conky Config

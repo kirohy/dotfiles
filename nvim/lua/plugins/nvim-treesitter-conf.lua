@@ -2,7 +2,7 @@ local M = {}
 
 function M.config()
   require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'cpp', 'c', 'cmake', 'json', 'julia', 'latex', 'lua', 'python', 'rust', 'toml', 'yaml' },
+    ensure_installed = { 'cpp', 'c', 'cmake', 'json', 'julia', 'lua', 'python', 'rust', 'toml', 'yaml', 'vimdoc' },
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
