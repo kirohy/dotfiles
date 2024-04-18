@@ -55,8 +55,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt no_flow_control
 
-alias ls='exa --icons'
-alias la='exa -ahl --git --icons'
+alias ls='eza --icons'
+alias la='eza -ahl --git --icons'
 alias vim='nvim'
 alias g='git'
 alias ..='cd ..'
