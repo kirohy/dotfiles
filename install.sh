@@ -1,9 +1,4 @@
 #!/bin/sh
-sudo apt -y install language-pack-ja
-sudo update-locale LANG=ja_JP.UTF8
-
-sudo apt install zsh tmux curl python3-venv build-essential xclip
-chsh -s /usr/bin/zsh
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -16,12 +11,10 @@ cargo install eza bat ripgrep cargo-update stylua texlab
 
 # Neovim
 (
-sudo apt install ninja-build gettext cmake unzip curl build-essential
 git clone https://github.com/neovim/neovim $HOME/neovim
 cd $HOME/neovim
 git checkout stable
 make CMAKE_BUILD_TYPE=Release
-sudo make install
 mkdir -p $HOME/.config
 ln -sf $HOME/dotfiles/nvim $HOME/.config/nvim
 cd $HOME/dotfiles/nvim
@@ -64,16 +57,10 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   # Alacritty
   (
-  sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
   git checkout v0.13.0
   cargo build --release
-  sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-  sudo cp target/release/alacritty /usr/local/bin
-  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-  sudo desktop-file-install extra/linux/Alacritty.desktop
-  sudo update-desktop-database
   mkdir -p $HOME/.config/alacritty
   ln -sf $HOME/dotfiles/alacritty.toml $HOME/.config/alacritty/alacritty.toml
   )
@@ -88,21 +75,22 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Shift><Alt>Left', '<Control><Shift><Alt>h']"
   gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Shift><Alt>Right', '<Control><Shift><Alt>l']"
   
-  # font
-  (
-  sudo apt install jq
-  cd $HOME/Downloads
-  FONT_ADDRESS=$(curl -s https://api.github.com/repos/yuru7/HackGen/releases/latest | jq -r '.assets[0].browser_download_url')
-  FONT_ZIP=${FONT_ADDRESS##*/}
-  wget $FONT_ADDRESS
-  unzip $FONT_ZIP
-  mkdir -p $HOME/.local/share/fonts
-  cp $HOME/Downloads/${FONT_ZIP%.*}/HakGenConsoleNF* $HOME/.local/share/fonts/
-  )
-  
   # Conky Config
   mkdir -p $HOME/.config/conky
   cp $HOME/dotfiles/conky.conf $HOME/.config/conky/conky.conf
+fi
+
+# install with sudo
+cd $HOME/neovim
+sudo make install
+
+if [ $# -eq 1 ] && [ $1 = "gui" ]; then
+  cd $HOME/alacritty
+  sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+  sudo cp target/release/alacritty /usr/local/bin
+  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+  sudo desktop-file-install extra/linux/Alacritty.desktop
+  sudo update-desktop-database
 fi
 
 echo "Finish building customized environment!"
