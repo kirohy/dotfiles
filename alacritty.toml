@@ -10,7 +10,7 @@ startup_mode = "Maximized"
 history = 100000
 
 [font]
-normal = { family = "HackGen Console NF", style = "Regular" }
+normal = { family = "HackGenConsole Nerd Font", style = "Regular" }
 size = 13
 
 [colors.primary]
