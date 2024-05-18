@@ -72,6 +72,14 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   })
   use({
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup()
+      vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=underline guisp=Grey' })
+      vim.cmd.highlight({ 'TreesitterContextLineNumberBottom', 'gui=underline guisp=Grey' })
+    end,
+  })
+  use({
     'windwp/nvim-autopairs',
     config = require('plugins.nvim-autopairs-conf').config,
   })
