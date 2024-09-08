@@ -99,6 +99,8 @@ return require('packer').startup(function(use)
         config = function()
           require('notify').setup({
             background_colour = '#191A21',
+            fps = 60,
+            render = "compact",
           })
         end,
       },

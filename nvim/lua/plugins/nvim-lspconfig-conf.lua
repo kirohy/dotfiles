@@ -46,13 +46,19 @@ function M.config()
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-  local servers = { 'clangd', 'pyright', 'texlab' }
+  local servers = { 'clangd', 'pyright'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
       on_attach = on_attach,
       capabilities = capabilities,
     })
   end
+
+  nvim_lsp.texlab.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = nvim_lsp.util.root_pattern('.git', 'latexmkrc')
+  })
 
   nvim_lsp.rust_analyzer.setup({
     on_attach = on_attach,
