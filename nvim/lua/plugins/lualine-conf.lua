@@ -1,7 +1,7 @@
-local M = {}
-
-function M.config()
-  require('lualine').setup({
+return {
+  'nvim-lualine/lualine.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  opts = {
     options = {
       theme = 'dracula-nvim',
     },
@@ -19,7 +19,6 @@ function M.config()
       lualine_z = { 'progress', 'location' },
     },
     extensions = { 'nvim-tree' },
-  })
-end
+  },
+}
 
-return M

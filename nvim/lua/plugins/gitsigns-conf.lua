@@ -1,13 +1,13 @@
-local M = {}
-
-function M.config()
-  require('gitsigns').setup({
+return {
+  'lewis6991/gitsigns.nvim',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  opts = {
     signs = {
-      add = { hl = 'GitSignsAdd', text = '+', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-      change = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-      delete = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-      topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-      changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      add = { text = '+' },
+      change = { text = '~' },
+      delete = { text = '_' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
@@ -36,7 +36,6 @@ function M.config()
         return '<Ignore>'
       end, { noremap = true, expr = true })
     end,
-  })
-end
+  },
+}
 
-return M

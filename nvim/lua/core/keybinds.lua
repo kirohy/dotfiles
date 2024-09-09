@@ -92,4 +92,4 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- plugin
-vim.keymap.set('n', '<M-t>', ':FloatermToggle<CR>', keymap_opts)
+-- vim.keymap.set('n', '<M-t>', ':FloatermToggle<CR>', keymap_opts)
