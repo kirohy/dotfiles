@@ -1,5 +1,5 @@
 [env]
-TERM = "xterm-256color"
+TERM = "alacritty"
 
 [window]
 decorations = "None"
@@ -11,7 +11,7 @@ history = 100000
 
 [font]
 normal = { family = "HackGenConsole Nerd Font", style = "Regular" }
-size = 13
+size = 14
 
 [colors.primary]
 foreground = "#f8f8f2"

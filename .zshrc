@@ -98,7 +98,7 @@ if [[ -z "$TMUX" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrain
         else
             tmux a -t ssh
         fi
-    else
+    elif [[ $TERM = "alacritty" || -n $(uname -r | grep -i 'microsoft') ]]; then
         tmux
     fi
 fi

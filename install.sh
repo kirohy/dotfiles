@@ -59,7 +59,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   (
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
-  git checkout v0.13.0
+  git checkout v0.14.0
   cargo build --release
   mkdir -p $HOME/.config/alacritty
   ln -sf $HOME/dotfiles/alacritty.toml $HOME/.config/alacritty/alacritty.toml
@@ -74,6 +74,13 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up', '<Control><Shift><Alt>k']"
   gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Control><Shift><Alt>Left', '<Control><Shift><Alt>h']"
   gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Shift><Alt>Right', '<Control><Shift><Alt>l']"
+
+  # gnome terminal
+  (
+  git clone https://github.com/dracula/gnome-terminal /tmp/dracula-gnome
+  cd /tmp/dracula-gnome
+  ./install.sh
+  )
   
   # Conky Config
   mkdir -p $HOME/.config/conky
