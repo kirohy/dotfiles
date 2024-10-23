@@ -37,7 +37,6 @@ return {
       vim.api.nvim_command([[BufferLineCyclePrev]])
       vim.api.nvim_command(string.format('bdelete! %d', buf_num))
     end
-    vim.api.nvim_set_keymap('n', '<Leader>bd', [[<Cmd>lua BufdeleteCurrent()<CR>]], { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bd', [[<Cmd>lua BufdeleteCurrent()<CR>]], { noremap = true, silent = true })
   end,
 }
-

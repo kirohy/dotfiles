@@ -1,6 +1,6 @@
 return {
   'Mofiqul/dracula.nvim',
-  config = function ()
+  config = function()
     vim.cmd.colorscheme('dracula')
     vim.cmd('syntax enable')
     vim.cmd.highlight({ 'Normal', 'ctermbg=NONE guibg=NONE' })

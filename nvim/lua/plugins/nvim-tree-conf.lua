@@ -2,21 +2,19 @@ return {
   'nvim-tree/nvim-tree.lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   keys = {
-    { '<Leader>tr', '<cmd>NvimTreeToggle<CR>', noremap = true, silent = true }
+    { '<Leader>tr', '<cmd>NvimTreeToggle<CR>', noremap = true, silent = true },
   },
-  config = function ()
+  config = function()
     vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
+    vim.g.loaded_netrwPlugin = 1
 
     vim.cmd.highlight({ 'NvimTreeNormal', 'ctermbg=NONE guibg=NONE' })
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'NvimTree',
       callback = function()
-        vim.api.nvim_buf_set_keymap(0, 'n', '<Leader>r', '<cmd>NvimTreeRefresh<CR>', { noremap = true, silent = true })
+        vim.keymap.set('n', '<Leader>r', '<cmd>NvimTreeRefresh<CR>', { noremap = true, silent = true, buffer = true })
       end,
     })
-    vim.api.nvim_set_keymap('n', '<Leader>ex', '<cmd>NvimTreeFindFile<CR>', { noremap = true, silent = true })
-    -- vim.api.nvim_set_keymap('n', '<Leader>tr', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
 
     local function on_attach(bufnr)
       local api = require('nvim-tree.api')
@@ -28,7 +26,6 @@ return {
       api.config.mappings.default_on_attach(bufnr)
 
       vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
-      -- vim.keymap.set('n', 'l', api.node.open.tab, opts('Open: New Tab'))
       vim.keymap.set('n', '<CR>', api.tree.change_root_to_node, opts('CD'))
       vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
     end
@@ -60,4 +57,3 @@ return {
     })
   end,
 }
-

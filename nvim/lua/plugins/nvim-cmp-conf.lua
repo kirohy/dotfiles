@@ -11,7 +11,7 @@ return {
     { 'onsails/lspkind.nvim' },
   },
   event = { 'InsertEnter' },
-  config = function ()
+  config = function()
     vim.o.completeopt = 'menu,menuone,noselect'
 
     local has_words_before = function()
@@ -96,14 +96,13 @@ return {
       sources = cmp.config.sources({
         { name = 'path' },
       }, {
-          {
-            name = 'cmdline',
-            option = {
-              ignore_cmds = { 'Man', '!' },
-            },
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' },
           },
-        }),
+        },
+      }),
     })
   end,
 }
-
