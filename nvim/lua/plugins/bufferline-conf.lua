@@ -6,7 +6,7 @@ return {
   keys = {
     { '<C-h>', '<cmd>BufferLineCyclePrev<CR>', noremap = true, silent = true },
     { '<C-l>', '<cmd>BufferLineCycleNext<CR>', noremap = true, silent = true },
-    { '<A-l>', '<cmd>BufferLineMovePrev<CR>', noremap = true, silent = true },
+    { '<A-h>', '<cmd>BufferLineMovePrev<CR>', noremap = true, silent = true },
     { '<A-l>', '<cmd>BufferLineMoveNext<CR>', noremap = true, silent = true },
     { '<Leader>bc', '<cmd>BufferLinePickClose<CR>', noremap = true, silent = true },
   },

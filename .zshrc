@@ -59,6 +59,7 @@ setopt no_flow_control
 
 alias ls='eza --icons'
 alias la='eza -ahl --git --icons'
+alias tree='eza -T --icons'
 alias vim='nvim'
 alias g='git'
 alias ..='cd ..'
