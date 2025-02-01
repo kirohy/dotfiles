@@ -81,6 +81,10 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   cd /tmp/dracula-gnome
   ./install.sh
   )
+
+  # gedit
+  mkdir -p $HOME/.local/share/gedit/styles
+  wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml -O $HOME/.local/share/gedit/styles/dracula.xml
   
   # Conky Config
   mkdir -p $HOME/.config/conky

@@ -51,3 +51,6 @@ vim.api.nvim_create_autocmd('FileType', {
 -- vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', command = 'setlocal spell spelllang=en_us' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nospell' })
+
+vim.g.lisp_rainbow = true
+
