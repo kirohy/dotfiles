@@ -91,6 +91,11 @@ bindkey '^N' history-beginning-search-forward
 if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
 if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+
 if [[ -z "$TMUX" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
     SSH_SESSION=`tmux ls | grep ssh`
     if [[ -n "$SSH_CONNECTION" ]]; then

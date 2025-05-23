@@ -49,6 +49,11 @@ return {
     nvim_lsp.texlab.setup({
       capabilities = capabilities,
       root_dir = nvim_lsp.util.root_pattern('.git', 'latexmkrc'),
+      -- settings = {
+      -- texlab = {
+      --   rootDirectory = nil,
+      --   }
+      -- }
     })
 
     nvim_lsp.rust_analyzer.setup({

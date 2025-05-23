@@ -30,16 +30,11 @@ cd $HOME/.lua-language-server
 ./make.sh
 )
 
-# nodejs
-# (
-# git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
-# cd $HOME/.nodenv && src/configure && make -C src
-# mkdir -p $HOME/.nodenv/plugins
-# git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build
-# ./bin/nodenv init
-# ./bin/nodenv install 17.9.1 # copilot
-# ./bin/nodenv global 17.9.1
-# )
+# pyenv
+(
+git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+)
 
 # Link dotfiles
 ln -sf $HOME/dotfiles/.gitconfig $HOME/.gitconfig
@@ -59,7 +54,7 @@ if [ $# -eq 1 ] && [ $1 = "gui" ]; then
   (
   git clone https://github.com/alacritty/alacritty.git $HOME/alacritty
   cd $HOME/alacritty
-  git checkout v0.14.0
+  git checkout v0.15.1
   cargo build --release
   mkdir -p $HOME/.config/alacritty
   ln -sf $HOME/dotfiles/alacritty.toml $HOME/.config/alacritty/alacritty.toml

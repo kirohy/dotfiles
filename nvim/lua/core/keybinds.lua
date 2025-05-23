@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lisp',
+  pattern = 'commonlisp',
   callback = function()
     vim.bo.commentstring = ';; %s'
   end,

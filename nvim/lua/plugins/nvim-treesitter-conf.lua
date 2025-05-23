@@ -4,7 +4,7 @@ return {
   config = function()
     local configs = require('nvim-treesitter.configs')
     configs.setup({
-      ensure_installed = { 'cpp', 'c', 'cmake', 'json', 'lua', 'python', 'rust', 'toml', 'yaml', 'vimdoc' },
+      ensure_installed = { 'cpp', 'c', 'cmake', 'json', 'lua', 'python', 'rust', 'toml', 'yaml', 'vimdoc', 'commonlisp' },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
