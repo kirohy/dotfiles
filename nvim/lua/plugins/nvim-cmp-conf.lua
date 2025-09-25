@@ -9,6 +9,7 @@ return {
     { 'saadparwaiz1/cmp_luasnip' },
     { 'L3MON4D3/LuaSnip' },
     { 'onsails/lspkind.nvim' },
+    { 'zbirenbaum/copilot-cmp' },
   },
   event = { 'InsertEnter', 'CmdlineEnter' },
   config = function()

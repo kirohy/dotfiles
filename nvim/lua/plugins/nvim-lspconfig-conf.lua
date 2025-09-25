@@ -8,8 +8,12 @@ return {
       callback = function(_)
         local nvim_telescope = require('telescope.builtin')
         local bufopts = { noremap = true, silent = true, buffer = true }
-        vim.keymap.set('n', '<Leader>dp', vim.diagnostic.goto_prev, bufopts)
-        vim.keymap.set('n', '<Leader>dn', vim.diagnostic.goto_next, bufopts)
+        vim.keymap.set('n', '<Leader>dp', function()
+          vim.diagnostic.jump({ count = -1 })
+        end, bufopts)
+        vim.keymap.set('n', '<Leader>dn', function()
+          vim.diagnostic.jump({ count = 1 })
+        end, bufopts)
         vim.keymap.set('n', 'gd', nvim_telescope.lsp_definitions, bufopts)
         vim.keymap.set('n', 'gi', nvim_telescope.lsp_implementations, bufopts)
         vim.keymap.set('n', 'gr', nvim_telescope.lsp_references, bufopts)
@@ -39,26 +43,17 @@ return {
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    local servers = { 'clangd', 'pyright' }
-    for _, lsp in ipairs(servers) do
-      nvim_lsp[lsp].setup({
-        capabilities = capabilities,
-      })
-    end
+    vim.lsp.config('texlab', { capabilities = capabilities })
+    vim.lsp.enable('texlab')
 
-    nvim_lsp.texlab.setup({
-      capabilities = capabilities,
-      root_dir = nvim_lsp.util.root_pattern('.git', 'latexmkrc'),
-      -- settings = {
-      -- texlab = {
-      --   rootDirectory = nil,
-      --   }
-      -- }
-    })
+    vim.lsp.config('clangd', { capabilities = capabilities })
+    vim.lsp.enable('clangd')
 
-    nvim_lsp.rust_analyzer.setup({
-      capabilities = capabilities,
-    })
+    vim.lsp.config('pyright', { capabilities = capabilities })
+    vim.lsp.enable('pyright')
+
+    vim.lsp.config('rust_analyzer', { capabilities = capabilities })
+    vim.lsp.enable('rust_analyzer')
 
     local lua_ls_root_path = vim.fn.getenv('HOME') .. '/.lua-language-server'
     local lua_ls_binary = lua_ls_root_path .. '/bin/lua-language-server'
@@ -67,7 +62,7 @@ return {
     table.insert(runtime_path, 'lua/?.lua')
     table.insert(runtime_path, 'lua/?/init.lua')
 
-    nvim_lsp.lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       cmd = { lua_ls_binary },
       capabilities = capabilities,
       settings = {
@@ -80,7 +75,10 @@ return {
             globals = { 'vim' },
           },
           workspace = {
-            library = vim.api.nvim_get_runtime_file('', true),
+            library = {
+              vim.api.nvim_get_runtime_file('', true),
+              '${3rd}/luv/library',
+            },
           },
           telemetry = {
             enable = false,
@@ -88,5 +86,6 @@ return {
         },
       },
     })
+    vim.lsp.enable('lua_ls')
   end,
 }

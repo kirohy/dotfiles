@@ -53,4 +53,3 @@ vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nospell' })
 
 vim.g.lisp_rainbow = true
-

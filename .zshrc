@@ -91,11 +91,36 @@ bindkey '^N' history-beginning-search-forward
 if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
 if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi
 
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv virtualenv-init - | sed s/precmd/chpwd/g)"
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+
+lazy_load_nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  "$@"
+}
+
+nvm() { lazy_load_nvm nvm "$@"; }
+node() { lazy_load_nvm node "$@"; }
+npm() { lazy_load_nvm npm "$@"; }
+npx() { lazy_load_nvm npx "$@"; }
+
+[ -s "$NVM_DIR/bash_completion" ] && {
+  _nvm_bash_completion_lazy_load() {
+    unset -f _nvm_bash_completion_lazy_load
+    \. "$NVM_DIR/bash_completion"
+    _nvm_bash_completion "$@"
+  }
+  compdef _nvm_bash_completion_lazy_load nvm
+}
+
+# tmux
 if [[ -z "$TMUX" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
     SSH_SESSION=`tmux ls | grep ssh`
     if [[ -n "$SSH_CONNECTION" ]]; then
