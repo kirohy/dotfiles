@@ -1,37 +1,49 @@
+local parsers = {
+  'cpp',
+  'c',
+  'cmake',
+  'json',
+  'lua',
+  'python',
+  'rust',
+  'toml',
+  'yaml',
+  'vimdoc',
+  'commonlisp',
+  'regex',
+  'bash',
+}
+
+local filetypes = vim.list_extend(vim.deepcopy(parsers), { 'sh' })
+
 return {
   'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
+  branch = 'main',
+  lazy = false,
+  build = function()
+    local treesitter = require('nvim-treesitter')
+    treesitter.setup({
+      install_dir = vim.fn.stdpath('data') .. '/site',
+    })
+    treesitter.update(parsers):wait(300000)
+  end,
   config = function()
-    local configs = require('nvim-treesitter.configs')
-    configs.setup({
-      ensure_installed = {
-        'cpp',
-        'c',
-        'cmake',
-        'json',
-        'lua',
-        'python',
-        'rust',
-        'toml',
-        'yaml',
-        'vimdoc',
-        'commonlisp',
-        'regex',
-        'bash',
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      incremental_selection = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-      autopairs = {
-        enable = true,
-      },
+    local treesitter = require('nvim-treesitter')
+
+    treesitter.setup({
+      install_dir = vim.fn.stdpath('data') .. '/site',
+    })
+    vim.treesitter.language.register('bash', 'sh')
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = filetypes,
+      callback = function()
+        local ok = pcall(vim.treesitter.start)
+        if not ok then
+          return
+        end
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
     })
   end,
 }

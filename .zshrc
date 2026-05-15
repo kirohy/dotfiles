@@ -91,17 +91,17 @@ bindkey '^N' history-beginning-search-forward
 if [[ -e $HOME/.ros.zsh ]]; then source $HOME/.ros.zsh; fi
 if [[ -e $HOME/.Xmodmap ]]; then xmodmap $HOME/.Xmodmap; fi
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init - | sed s/precmd/chpwd/g)"
+# # pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
+# eval "$(pyenv virtualenv-init - | sed s/precmd/chpwd/g)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 
 lazy_load_nvm() {
-  unset -f nvm node npm npx
+  unset -f nvm node npm npx codex
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   "$@"
 }
@@ -110,6 +110,7 @@ nvm() { lazy_load_nvm nvm "$@"; }
 node() { lazy_load_nvm node "$@"; }
 npm() { lazy_load_nvm npm "$@"; }
 npx() { lazy_load_nvm npx "$@"; }
+codex() { lazy_load_nvm codex "$@"; }
 
 [ -s "$NVM_DIR/bash_completion" ] && {
   _nvm_bash_completion_lazy_load() {

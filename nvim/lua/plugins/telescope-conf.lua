@@ -1,7 +1,7 @@
 return {
   'nvim-telescope/telescope.nvim',
   branch = '0.1.x',
-  dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
+  dependencies = { 'nvim-lua/plenary.nvim' },
   cmd = 'Telescope',
   lazy = false,
   config = function()

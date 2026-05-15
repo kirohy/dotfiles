@@ -11,8 +11,8 @@ return {
     vim.cmd.highlight({ 'NvimTreeNormal', 'ctermbg=NONE guibg=NONE' })
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'NvimTree',
-      callback = function()
-        vim.keymap.set('n', '<Leader>r', '<cmd>NvimTreeRefresh<CR>', { noremap = true, silent = true, buffer = true })
+      callback = function(args)
+        vim.keymap.set('n', '<Leader>r', '<cmd>NvimTreeRefresh<CR>', { noremap = true, silent = true, buf = args.buf })
       end,
     })
 
@@ -20,10 +20,10 @@ return {
       local api = require('nvim-tree.api')
 
       local function opts(desc)
-        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        return { desc = 'nvim-tree: ' .. desc, buf = bufnr, noremap = true, silent = true, nowait = true }
       end
 
-      api.config.mappings.default_on_attach(bufnr)
+      api.map.on_attach.default(bufnr)
 
       vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
       vim.keymap.set('n', '<CR>', api.tree.change_root_to_node, opts('CD'))

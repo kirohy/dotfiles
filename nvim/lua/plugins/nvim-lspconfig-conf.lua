@@ -2,12 +2,10 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = { 'hrsh7th/cmp-nvim-lsp' },
   config = function()
-    local nvim_lsp = require('lspconfig')
-
     vim.api.nvim_create_autocmd('LspAttach', {
-      callback = function(_)
+      callback = function(args)
         local nvim_telescope = require('telescope.builtin')
-        local bufopts = { noremap = true, silent = true, buffer = true }
+        local bufopts = { noremap = true, silent = true, buf = args.buf }
         vim.keymap.set('n', '<Leader>dp', function()
           vim.diagnostic.jump({ count = -1 })
         end, bufopts)
@@ -43,20 +41,13 @@ return {
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    vim.lsp.config('texlab', { capabilities = capabilities })
-    vim.lsp.enable('texlab')
-
-    vim.lsp.config('clangd', { capabilities = capabilities })
-    vim.lsp.enable('clangd')
-
-    vim.lsp.config('pyright', { capabilities = capabilities })
-    vim.lsp.enable('pyright')
-
-    vim.lsp.config('rust_analyzer', { capabilities = capabilities })
-    vim.lsp.enable('rust_analyzer')
+    vim.lsp.config('*', { capabilities = capabilities })
 
     local lua_ls_root_path = vim.fn.getenv('HOME') .. '/.lua-language-server'
     local lua_ls_binary = lua_ls_root_path .. '/bin/lua-language-server'
+    if vim.fn.executable(lua_ls_binary) == 0 then
+      lua_ls_binary = 'lua-language-server'
+    end
 
     local runtime_path = vim.split(package.path, ';')
     table.insert(runtime_path, 'lua/?.lua')
@@ -64,7 +55,6 @@ return {
 
     vim.lsp.config('lua_ls', {
       cmd = { lua_ls_binary },
-      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = {
@@ -86,6 +76,7 @@ return {
         },
       },
     })
-    vim.lsp.enable('lua_ls')
+
+    vim.lsp.enable({ 'texlab', 'clangd', 'pyright', 'rust_analyzer', 'lua_ls' })
   end,
 }
