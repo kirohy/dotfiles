@@ -26,11 +26,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=true
 
-if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]];then
-  ISSSH="%f%F{yellow} [SSH]"
-fi
-
-PS1='%f%F{magenta}[$(date +"%H:%M:%S")]${ISSSH} %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
+PS1='%f%F{magenta}[$(date +"%H:%M:%S")] %f%F{green}%~%f%F{cyan}$(__git_ps1)%f
 %% '
 
 # history
@@ -121,16 +117,3 @@ codex() { lazy_load_nvm codex "$@"; }
   compdef _nvm_bash_completion_lazy_load nvm
 }
 
-# tmux
-if [[ -z "$TMUX" && $TERM_PROGRAM != "vscode" && $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
-    SSH_SESSION=`tmux ls | grep ssh`
-    if [[ -n "$SSH_CONNECTION" ]]; then
-        if [[ -z "$SSH_SESSION" ]]; then
-            tmux new -s ssh
-        else
-            tmux a -t ssh
-        fi
-    elif [[ $TERM = "alacritty" || -n $(uname -r | grep -i 'microsoft') ]]; then
-        tmux
-    fi
-fi
