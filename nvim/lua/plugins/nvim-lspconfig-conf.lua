@@ -1,13 +1,30 @@
 return {
   'neovim/nvim-lspconfig',
-  dependencies = { 'hrsh7th/cmp-nvim-lsp' },
   config = function()
     local group = vim.api.nvim_create_augroup('LspConfig', { clear = true })
+
+    vim.api.nvim_create_autocmd('LspProgress', {
+      group = group,
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local value = args.data.params.value
+        if not client or type(value) ~= 'table' or not value.kind then
+          return
+        end
+        vim.api.nvim_echo({ { value.message or '' } }, false, {
+          id = 'lsp:' .. client.id .. ':' .. args.data.params.token,
+          kind = 'progress',
+          title = client.name .. ': ' .. (value.title or ''),
+          source = client.name,
+          status = value.kind == 'end' and 'success' or 'running',
+          percent = value.kind == 'end' and 100 or value.percentage,
+        })
+      end,
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = group,
       callback = function(args)
-        local nvim_telescope = require('telescope.builtin')
         local bufopts = { silent = true, buf = args.buf }
         vim.keymap.set('n', '<Leader>dp', function()
           vim.diagnostic.jump({ count = -1 })
@@ -15,9 +32,15 @@ return {
         vim.keymap.set('n', '<Leader>dn', function()
           vim.diagnostic.jump({ count = 1 })
         end, bufopts)
-        vim.keymap.set('n', 'gd', nvim_telescope.lsp_definitions, bufopts)
-        vim.keymap.set('n', 'gi', nvim_telescope.lsp_implementations, bufopts)
-        vim.keymap.set('n', 'gr', nvim_telescope.lsp_references, bufopts)
+        vim.keymap.set('n', 'gd', function()
+          require('telescope.builtin').lsp_definitions()
+        end, bufopts)
+        vim.keymap.set('n', 'gi', function()
+          require('telescope.builtin').lsp_implementations()
+        end, bufopts)
+        vim.keymap.set('n', 'gr', function()
+          require('telescope.builtin').lsp_references()
+        end, bufopts)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
         vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -43,21 +66,10 @@ return {
       end,
     })
 
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-    vim.lsp.config('*', { capabilities = capabilities })
-
     local lua_ls_binary = vim.env.HOME .. '/.lua-language-server/bin/lua-language-server'
     if vim.fn.executable(lua_ls_binary) == 0 then
       lua_ls_binary = 'lua-language-server'
     end
-
-    local runtime_path = vim.split(package.path, ';')
-    table.insert(runtime_path, 'lua/?.lua')
-    table.insert(runtime_path, 'lua/?/init.lua')
-
-    local library = vim.api.nvim_get_runtime_file('', true)
-    table.insert(library, '${3rd}/luv/library')
 
     vim.lsp.config('lua_ls', {
       cmd = { lua_ls_binary },
@@ -65,13 +77,13 @@ return {
         Lua = {
           runtime = {
             version = 'LuaJIT',
-            path = runtime_path,
           },
           diagnostics = {
             globals = { 'vim' },
           },
           workspace = {
-            library = library,
+            library = { vim.env.VIMRUNTIME, '${3rd}/luv/library' },
+            checkThirdParty = false,
           },
         },
       },
