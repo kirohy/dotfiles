@@ -3,7 +3,8 @@ return {
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
   config = function()
     require('treesitter-context').setup()
-    vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=underline guisp=Grey' })
-    vim.cmd.highlight({ 'TreesitterContextLineNumberBottom', 'gui=underline guisp=Grey' })
+    for _, group in ipairs({ 'TreesitterContextBottom', 'TreesitterContextLineNumberBottom' }) do
+      vim.cmd.highlight({ group, 'gui=underline guisp=Grey' })
+    end
   end,
 }

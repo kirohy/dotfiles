@@ -6,12 +6,7 @@ return {
       theme = 'dracula-nvim',
     },
     sections = {
-      lualine_a = { 'mode' },
-      lualine_b = {
-        { 'branch' },
-        { 'diff', color_added = '#69FF94', color_modified = '#8BE9FD', color_removed = '#FF6E6E' },
-      },
-      lualine_c = { 'filename' },
+      lualine_b = { 'branch', 'diff' },
       lualine_x = {
         { 'diagnostics', sources = { 'nvim_diagnostic' } },
       },

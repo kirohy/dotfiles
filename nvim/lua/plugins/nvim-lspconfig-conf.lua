@@ -2,10 +2,13 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = { 'hrsh7th/cmp-nvim-lsp' },
   config = function()
+    local group = vim.api.nvim_create_augroup('LspConfig', { clear = true })
+
     vim.api.nvim_create_autocmd('LspAttach', {
+      group = group,
       callback = function(args)
         local nvim_telescope = require('telescope.builtin')
-        local bufopts = { noremap = true, silent = true, buf = args.buf }
+        local bufopts = { silent = true, buf = args.buf }
         vim.keymap.set('n', '<Leader>dp', function()
           vim.diagnostic.jump({ count = -1 })
         end, bufopts)
@@ -26,6 +29,7 @@ return {
     })
 
     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+      group = group,
       callback = function()
         local opts = {
           focusable = false,
@@ -43,8 +47,7 @@ return {
 
     vim.lsp.config('*', { capabilities = capabilities })
 
-    local lua_ls_root_path = vim.fn.getenv('HOME') .. '/.lua-language-server'
-    local lua_ls_binary = lua_ls_root_path .. '/bin/lua-language-server'
+    local lua_ls_binary = vim.env.HOME .. '/.lua-language-server/bin/lua-language-server'
     if vim.fn.executable(lua_ls_binary) == 0 then
       lua_ls_binary = 'lua-language-server'
     end
@@ -52,6 +55,9 @@ return {
     local runtime_path = vim.split(package.path, ';')
     table.insert(runtime_path, 'lua/?.lua')
     table.insert(runtime_path, 'lua/?/init.lua')
+
+    local library = vim.api.nvim_get_runtime_file('', true)
+    table.insert(library, '${3rd}/luv/library')
 
     vim.lsp.config('lua_ls', {
       cmd = { lua_ls_binary },
@@ -65,13 +71,7 @@ return {
             globals = { 'vim' },
           },
           workspace = {
-            library = {
-              vim.api.nvim_get_runtime_file('', true),
-              '${3rd}/luv/library',
-            },
-          },
-          telemetry = {
-            enable = false,
+            library = library,
           },
         },
       },

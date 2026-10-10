@@ -2,7 +2,6 @@ return {
   'nvim-telescope/telescope.nvim',
   branch = '0.1.x',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  cmd = 'Telescope',
   lazy = false,
   config = function()
     local actions = require('telescope.actions')
@@ -20,35 +19,15 @@ return {
       },
     })
 
-    vim.keymap.set(
-      'n',
-      '<Leader>fb',
-      [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
-      { noremap = true, silent = true }
-    )
-    vim.keymap.set(
-      'n',
-      '<Leader>ff',
-      [[<cmd>lua require('telescope.builtin').find_files()<CR>]],
-      { noremap = true, silent = true }
-    )
-    vim.keymap.set(
-      'n',
-      '<Leader>fc',
-      [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],
-      { noremap = true, silent = true }
-    )
-    vim.keymap.set(
-      'n',
-      '<Leader>fs',
-      [[<cmd>lua require('telescope.builtin').live_grep()<CR>]],
-      { noremap = true, silent = true }
-    )
-    vim.keymap.set(
-      'n',
-      '<Leader>fg',
-      [[<cmd>lua require('telescope.builtin').git_status()<CR>]],
-      { noremap = true, silent = true }
-    )
+    local builtin = require('telescope.builtin')
+    for key, action in pairs({
+      ['<Leader>fb'] = builtin.buffers,
+      ['<Leader>ff'] = builtin.find_files,
+      ['<Leader>fc'] = builtin.current_buffer_fuzzy_find,
+      ['<Leader>fs'] = builtin.live_grep,
+      ['<Leader>fg'] = builtin.git_status,
+    }) do
+      vim.keymap.set('n', key, action, { silent = true })
+    end
   end,
 }

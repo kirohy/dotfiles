@@ -1,47 +1,17 @@
-local keymap_opts = { noremap = true, silent = true }
+local keymap_opts = { silent = true }
 
-vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR>', keymap_opts)
+vim.keymap.set('n', '<Esc><Esc>', '<Cmd>nohlsearch<CR>', keymap_opts)
 vim.keymap.set('n', ';', ':', keymap_opts)
-vim.keymap.set('n', 'j', 'gj', keymap_opts)
-vim.keymap.set('v', 'j', 'gj', keymap_opts)
-vim.keymap.set('n', 'k', 'gk', keymap_opts)
-vim.keymap.set('v', 'k', 'gk', keymap_opts)
-vim.keymap.set('n', '<Leader>cl', ':close<CR>', keymap_opts)
-vim.keymap.set('n', '<Leader>w', ':w<CR>', keymap_opts)
-vim.keymap.set('n', '<Leader>q', ':q<CR>', keymap_opts)
-vim.keymap.set('n', '<Leader>tn', ':enew<CR>:term<CR>', keymap_opts)
-vim.keymap.set('n', '<Leader>th', ':new<CR>:term<CR>', keymap_opts)
-vim.keymap.set('n', '<Leader>tv', ':vnew<CR>:term<CR>', keymap_opts)
+vim.keymap.set({ 'n', 'v' }, 'j', 'gj', keymap_opts)
+vim.keymap.set({ 'n', 'v' }, 'k', 'gk', keymap_opts)
+vim.keymap.set('n', '<Leader>cl', '<Cmd>close<CR>', keymap_opts)
+vim.keymap.set('n', '<Leader>w', '<Cmd>write<CR>', keymap_opts)
+vim.keymap.set('n', '<Leader>q', '<Cmd>quit<CR>', keymap_opts)
+vim.keymap.set('n', '<Leader>tn', '<Cmd>enew<CR><Cmd>terminal<CR>', keymap_opts)
+vim.keymap.set('n', '<Leader>th', '<Cmd>new<CR><Cmd>terminal<CR>', keymap_opts)
+vim.keymap.set('n', '<Leader>tv', '<Cmd>vnew<CR><Cmd>terminal<CR>', keymap_opts)
 vim.keymap.set('i', 'jj', '<ESC>', keymap_opts)
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], keymap_opts)
 
 vim.keymap.set('n', '<Leader>co', 'gcc', { remap = true })
 vim.keymap.set('v', '<Leader>co', 'gc', { remap = true })
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'cpp' },
-  callback = function()
-    vim.bo.commentstring = '// %s'
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'commonlisp', 'lisp' },
-  callback = function()
-    vim.bo.commentstring = ';; %s'
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'xml',
-  callback = function()
-    vim.bo.commentstring = '<!-- %s -->'
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'vrml' },
-  callback = function()
-    vim.bo.commentstring = '# %s'
-  end,
-})

@@ -1,16 +1,14 @@
 return {
   'lewis6991/gitsigns.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim' },
   opts = {
     signs = {
       add = { text = '+' },
       change = { text = '~' },
       delete = { text = '_' },
       topdelete = { text = '‾' },
-      changedelete = { text = '~' },
     },
     on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
+      local gs = require('gitsigns')
       local function map(mode, l, r, opts)
         opts = opts or {}
         opts.buf = bufnr
@@ -21,20 +19,20 @@ return {
           return '<Leader>hn'
         end
         vim.schedule(function()
-          gs.next_hunk()
+          gs.nav_hunk('next')
         end)
         return '<Ignore>'
-      end, { noremap = true, expr = true })
+      end, { expr = true })
 
       map('n', '<Leader>hp', function()
         if vim.wo.diff then
           return '<Leader>hp'
         end
         vim.schedule(function()
-          gs.prev_hunk()
+          gs.nav_hunk('prev')
         end)
         return '<Ignore>'
-      end, { noremap = true, expr = true })
+      end, { expr = true })
     end,
   },
 }

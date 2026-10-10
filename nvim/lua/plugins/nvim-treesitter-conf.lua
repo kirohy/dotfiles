@@ -20,22 +20,23 @@ return {
   'nvim-treesitter/nvim-treesitter',
   branch = 'main',
   lazy = false,
-  build = function()
+  opts = {
+    -- Prepend the parser directory so its queries take precedence.
+    install_dir = vim.fn.stdpath('data') .. '/site',
+  },
+  build = function(plugin)
     local treesitter = require('nvim-treesitter')
-    treesitter.setup({
-      install_dir = vim.fn.stdpath('data') .. '/site',
-    })
+    treesitter.setup(plugin.opts)
     treesitter.update(parsers):wait(300000)
   end,
-  config = function()
+  config = function(_, opts)
     local treesitter = require('nvim-treesitter')
 
-    treesitter.setup({
-      install_dir = vim.fn.stdpath('data') .. '/site',
-    })
+    treesitter.setup(opts)
     vim.treesitter.language.register('bash', 'sh')
 
     vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('TreesitterConfig', { clear = true }),
       pattern = filetypes,
       callback = function()
         local ok = pcall(vim.treesitter.start)

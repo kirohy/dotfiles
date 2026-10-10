@@ -3,7 +3,7 @@ return {
   dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
   event = 'VeryLazy',
   keys = {
-    { '<Leader>lg', '<cmd>Noice<CR>', noremap = true, silent = true },
+    { '<Leader>lg', '<cmd>Noice<CR>', silent = true },
   },
   opts = {
     lsp = {
