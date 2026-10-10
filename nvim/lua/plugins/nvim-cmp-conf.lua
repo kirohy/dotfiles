@@ -9,7 +9,6 @@ return {
     { 'saadparwaiz1/cmp_luasnip' },
     { 'L3MON4D3/LuaSnip' },
     { 'onsails/lspkind.nvim' },
-    { 'zbirenbaum/copilot-cmp' },
   },
   event = { 'InsertEnter', 'CmdlineEnter' },
   config = function()
@@ -23,11 +22,6 @@ return {
     local cmp = require('cmp')
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
-    lspkind.init({
-      symbol_map = {
-        Copilot = '',
-      },
-    })
     vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
 
     cmp.setup({
@@ -37,7 +31,6 @@ return {
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' },
-        { name = 'copilot' },
       },
       snippet = {
         expand = function(args)
